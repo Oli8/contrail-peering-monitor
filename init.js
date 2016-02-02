@@ -29,6 +29,24 @@ var initContrailSet = function(callback){
   });
 }
 
+var deleteOutdatedNode = function(objJSON, callback){
+  for(i in contrailSet.configSet){
+    var name = contrailSet.configSet[i].name;
+    var isDelete = true;
+    for(j in objJSON){
+      if(objJSON[j].name == name){
+        isDelete = false;
+        break;
+      }
+    }
+    if(isDelete){
+      delete contrailSet.configSet[i];
+      delete contrailSet.nodes[name];
+    }
+  }
+  callback(null)
+}
+
 var updateConfigNode = function(ele, index, callback){
   async.waterfall([
     // href: url to request objJSON
@@ -67,16 +85,17 @@ var updateConfigSet = function(callback){
     function(objJSON, callback){
       for(i in objJSON){
         var name = objJSON[i].name;
-        if(!(name in contrailSet.configSet)){
+        if(!(name in contrailSet.nodes)){
           contrailSet.nodes[name] = new contrailNode.ConfigNode(name);
           contrailSet.nodes[name].href = objJSON[i].href;
           contrailSet.configSet.push(contrailSet.nodes[name]);
         }
       }
-      callback(null);
+      callback(null, objJSON);
     },
+    deleteOutdatedNode,
     function(callback){
-      console.log(contrailSet);
+      //console.log(contrailSet);
       async.forEachOf(contrailSet.configSet, updateConfigNode, function(err, res){
         callback(null);
       });
@@ -85,6 +104,7 @@ var updateConfigSet = function(callback){
     callback(null);
   });
 }
+
 
 exports._run = function(callback){
   async.waterfall([

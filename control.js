@@ -20,6 +20,18 @@ exports.requestJSON = function(href, callback){
   });
 };
 
+/*
 exports.run = function(callback){
-  return;
-}
+  async.waterfall([
+    updateConfigSet,
+    function(callback){
+      async.forEachOf(contrailSet.configSet, updateConfigNode, function(err, res){
+        callback(null);
+      });
+    }
+  ], function(err, res){
+    callback(null);
+  }
+)
+};
+*/
