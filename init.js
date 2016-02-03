@@ -101,6 +101,7 @@ var updateConfigSet = function(callback){
       });
     }
   ], function(err, res){
+    //updateEvent.emit('updateEvent');
     callback(null);
   });
 }

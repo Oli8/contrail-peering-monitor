@@ -1,3 +1,6 @@
+var EventEmitter = require('events').EventEmitter;
+var util = require('util');
+
 // ContrailNode
 var ContrailNode = function(name, ipAddress){
 	this.ipAddress = ipAddress;
@@ -22,4 +25,20 @@ exports.Service = function(name){
 //status:bool
 var setStatus = function(status){
 	this.status = status;
-}
+};
+
+
+// Event
+var UpdateEmitter = function() {
+  EventEmitter.call(this);
+};
+
+util.inherits(UpdateEmitter, EventEmitter);
+
+var _updateEvent = new UpdateEmitter();
+
+_updateEvent.on('updateEvent', function() {
+  console.log('UPDATE!');
+});
+
+exports.updateEvent = _updateEvent;
