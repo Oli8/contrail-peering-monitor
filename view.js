@@ -1,6 +1,7 @@
 var blessed = require('blessed');
 var contrib = require('blessed-contrib');
-var init = require('./init');
+var contrailNode = require('./contrailNode');
+var control = require('./control');
 
 exports.run = function(callback){
   ///////////////////////
@@ -57,15 +58,7 @@ exports.run = function(callback){
     columnWidth: [16, 12]
   });
 
-  //screen.focusPush(nodeTable);
-  //screen.focusPush(servicesTable);
   nodeTable.focus();
-  /*
-  nodeTable.on('focus', function(el) {
-  el.parent.border.fg = 'red';
-  screen.render();
-  });
-  */
 
   //////////////
   // Set Data //
@@ -73,6 +66,7 @@ exports.run = function(callback){
 
   //update the Nodes view
   var updateNodeView = function(){
+    console.log('UPDATE!');
     var nodeList = [];
 
     for(i in contrailSet.nodes){
@@ -83,7 +77,6 @@ exports.run = function(callback){
       headers: ['Node Name'],
       data: nodeList,
     });
-    screen.render();
   };
 
   // update Services Status View by passing config names
@@ -103,6 +96,7 @@ exports.run = function(callback){
     screen.log('helo');
     screen.render();
   }
+
   // simulate services update
   var simuleUpdateServiceView = function(){
     var servicesList = [['IF-MAP'],
@@ -122,6 +116,7 @@ exports.run = function(callback){
       headers: ['Node Name'],
       data: servicesList,
     });
+
     screen.render();
   }
 
@@ -145,11 +140,23 @@ exports.run = function(callback){
   });
 
   updateNodeView();
-  //screen.render();
+  screen.render();
   //setInterval(updateNodeView, 4000);
   nodeTable.on("element select", function(){
     updateServiceView(nodeTable.rows.value);
     screen.log(nodeTable.rows.value);
   });
+
+  // contrailNode.updateEvent.on('updateEvent',function(){
+  //   updateNodeView();
+  //   screen.render();
+  // });
 }
+
 //this.run(null);
+//screen.focusPush(nodeTable);
+//screen.focusPush(servicesTable);
+// nodeTable.on('focus', function(el) {
+//   el.parent.border.fg = 'red';
+//   screen.render();
+// });

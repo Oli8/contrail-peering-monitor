@@ -11,7 +11,10 @@ run --> init.js --> view.js
                 --> control.js
 */
 async.waterfall([
-  init._run,
+  init.run,
+  // function(callback){
+  //   setInterval(init._updateContrailSet,3000,callback);
+  // },
   view.run
 ],function(err, res){
   console.log(util.inspect(contrailSet, false, null));
