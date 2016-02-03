@@ -19,7 +19,7 @@ var initStructure = function(callback){
   callback(null);
 }
 
-var initContrailSet = function(callback){
+var updateContrailSet = function(callback){
   async.parallel([
     updateConfigSet
     // updateControl
@@ -110,7 +110,7 @@ var updateConfigSet = function(callback){
 exports._run = function(callback){
   async.waterfall([
     initStructure,
-    initContrailSet
+    updateContrailSet
   ], function(err, res){
     console.log(util.inspect(contrailSet, false, null));
     callback(null);
