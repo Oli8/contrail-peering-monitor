@@ -12,7 +12,6 @@ var _requestJSON = function(href, callback){
 };
 
 var _updateContrailSet = function(callback){
-  //console.log('This is the update');
   async.parallel([
     updateConfigSet
     // updateControl
@@ -71,7 +70,7 @@ var updateConfigNode = function(ele, index, callback){
 var updateConfigSet = function(callback){
   async.waterfall([
     function(callback){
-      callback(null, 'd-oalcld-0000.adm.lab2.aub.cloudwatt.net');
+      callback(null, CONFIG.analytics);
     },
     function(url, callback){
       configUrl = 'http://' + url + ':8081/analytics/uves/config-nodes';
