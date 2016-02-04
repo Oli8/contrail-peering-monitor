@@ -66,7 +66,7 @@ exports.run = function(callback){
 
   //update the Nodes view
   var updateNodeView = function(){
-    console.log('UPDATE!');
+    //console.log('UPDATE!');
     var nodeList = [];
 
     for(i in contrailSet.nodes){
@@ -146,6 +146,11 @@ exports.run = function(callback){
     updateServiceView(nodeTable.rows.value);
     screen.log(nodeTable.rows.value);
   });
+
+  setInterval(function(){
+    control.updateContrailSet();
+    screen.render();
+  }, 4000);
 
   // contrailNode.updateEvent.on('updateEvent',function(){
   //   updateNodeView();

@@ -12,13 +12,16 @@ var _requestJSON = function(href, callback){
 };
 
 var _updateContrailSet = function(callback){
+  //console.log('This is the update');
   async.parallel([
     updateConfigSet
     // updateControl
     // updateVrouter
   ], function(err, res){
     contrailNode.updateEvent.emit('updateEvent');
-    callback(null);
+    if(callback){
+      callback(null);
+    }
   });
 }
 
@@ -68,7 +71,7 @@ var updateConfigNode = function(ele, index, callback){
 var updateConfigSet = function(callback){
   async.waterfall([
     function(callback){
-      callback(null, 'd-oalcld-0000.adm.lab0.aub.cloudwatt.net');
+      callback(null, 'd-oalcld-0000.adm.lab2.aub.cloudwatt.net');
     },
     function(url, callback){
       configUrl = 'http://' + url + ':8081/analytics/uves/config-nodes';

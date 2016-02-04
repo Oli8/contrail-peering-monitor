@@ -37,8 +37,8 @@ util.inherits(UpdateEmitter, EventEmitter);
 
 var _updateEvent = new UpdateEmitter();
 
+exports.updateEvent = _updateEvent;
+
 // _updateEvent.on('updateEvent', function() {
 //   console.log('UPDATE!');
 // });
-
-exports.updateEvent = _updateEvent;
