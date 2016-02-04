@@ -1,3 +1,4 @@
+#! /usr/bin/nodejs
 var async = require('async');
 var program = require('commander');
 var util = require('util');
