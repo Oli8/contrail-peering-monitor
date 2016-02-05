@@ -150,7 +150,7 @@ exports.run = function(callback){
   setInterval(function(){
     control.updateContrailSet();
     screen.render();
-  }, 4000);
+  }, CONFIG.time);
 
   // contrailNode.updateEvent.on('updateEvent',function(){
   //   updateNodeView();

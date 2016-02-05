@@ -33,11 +33,10 @@ var _initConfig = function(program, callback){
     console.log("Error");
     process.exit();
   }
-  if(program.time){
-    _CONFIG.time = program.time;
+  if(program.timeToRefresh){
+    _CONFIG.time = program.timeToRefresh;
   }
   _CONFIG.analytics = program.analytics;
-  console.log(_CONFIG);
   callback(null);
 }
 
