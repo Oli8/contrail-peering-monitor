@@ -16,11 +16,11 @@ program
 
 async.waterfall([
   async.apply(init.initConfig, program),
-  init.run,
+  init.run
   // function(callback){
   //   setInterval(init._updateContrailSet,3000,callback);
   // },
-  view.run
+  //view.run
 ],function(err, res){
   console.log(util.inspect(contrailSet, false, null));
 })

@@ -1,4 +1,5 @@
-# TODO 
+# TODO
+
 * CLI options with commander.js
 * Checking log generation in blessed
 * Review classes in contrailNode
@@ -8,3 +9,4 @@
 * Add _update_ function related to data structure
 * Manage errors
 * package.json
+* Check if callback are null or undefined

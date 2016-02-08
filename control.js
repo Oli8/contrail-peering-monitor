@@ -13,11 +13,14 @@ var _requestJSON = function(href, callback){
 
 var _updateContrailSet = function(callback){
   async.parallel([
-    updateConfigSet
-    // updateControl
+    updateConfigSet,
+    function(callback){
+      contrailSet.controlSet.update(callback);
+    }
     // updateVrouter
   ], function(err, res){
-    contrailNode.updateEvent.emit('updateEvent');
+    //console.log(contrailSet);
+    //contrailNode.updateEvent.emit('updateEvent');
     if(callback){
       callback(null);
     }
