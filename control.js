@@ -19,8 +19,10 @@ var _updateContrailSet = function(callback){
     },
     function(callback){
       contrailSet.controlSet.update(callback);
+    },
+    function(callback){
+      contrailSet.vRouterSet.update(callback);
     }
-    // updateVrouter
   ], function(err, res){
     //console.log(contrailSet);
     contrailNode.updateEvent.emit('updateEvent');
@@ -30,28 +32,5 @@ var _updateContrailSet = function(callback){
   });
 }
 
-
-
-
-
-
-
 exports.requestJSON = _requestJSON;
 exports.updateContrailSet = _updateContrailSet;
-
-
-/*
-exports.run = function(callback){
-  async.waterfall([
-    updateConfigSet,
-    function(callback){
-      async.forEachOf(contrailSet.configSet, updateConfigNode, function(err, res){
-        callback(null);
-      });
-    }
-  ], function(err, res){
-    callback(null);
-  }
-)
-};
-*/

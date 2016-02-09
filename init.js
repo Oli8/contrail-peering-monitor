@@ -4,6 +4,7 @@ var unirest = require('unirest');
 var contrailNode = require('./contrailNode');
 var ConfigSet = require('./ConfigSet');
 var ControlSet = require('./ControlSet');
+var VRouterSet = require('./VRouterSet');
 var control = require('./control');
 
 var _CONFIG = {
@@ -20,6 +21,7 @@ var initStructure = function(callback){
   };
   contrailSet.configSet = new ConfigSet(CONFIG.analytics);
   contrailSet.controlSet = new ControlSet(CONFIG.analytics);
+  contrailSet.vRouterSet = new VRouterSet(CONFIG.analytics);
   callback(null);
 }
 

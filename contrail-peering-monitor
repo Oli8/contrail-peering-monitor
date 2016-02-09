@@ -8,7 +8,7 @@ var control = require('./control');
 var view = require('./view');
 
 program
-.version('0.0.2')
+.version('0.0.3')
 .usage('-a <hostname> [options]')
 .option('-a, --analytics <hostname>', 'Analytics address')
 .option('-t, --time-to-refresh <time>', 'Interval to refresh data (in ms)', parseInt)
