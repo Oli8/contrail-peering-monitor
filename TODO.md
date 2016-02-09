@@ -4,8 +4,8 @@
 * Checking log generation in blessed
 * Review classes in contrailNode
 * Comments with JSDoc
-* Adapt for control nodes
-* Adapt for compute nodes (vrouter)
+* Add analytics
+* Add peering (XMPP BGP)
 * Add _update_ function related to data structure
 * Manage errors
 * package.json

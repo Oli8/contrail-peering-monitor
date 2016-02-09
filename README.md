@@ -1,14 +1,14 @@
 # Contrail Peering Monitor
 
 ## Version
- v.0.0.2
+ v.0.0.3
 ## Usage
-> ./contrail-peering-monitor --help \
-  Usage: contrail-peering-monitor -a <hostname> [options]\
+> ./contrail-peering-monitor --help
+  Usage: contrail-peering-monitor -a <hostname> [options]
   Options:
-    -h, --help                    output usage information\
-    -V, --version                 output the version number\
-    -a, --analytics <hostname>    Analytics address\
+    -h, --help                    output usage information
+    -V, --version                 output the version number
+    -a, --analytics <hostname>    Analytics address
     -t, --time-to-refresh <time>  Interval to refresh data (in ms)
 
 ## Prerequisites
