@@ -1,6 +1,7 @@
 var async = require('async');
 var unirest = require('unirest');
 var contrailNode = require('./contrailNode');
+var Service = require('./Service');
 
 var _requestJSON = function(href, callback){
   unirest.get(href)
@@ -54,7 +55,7 @@ var updateConfigNode = function(ele, index, callback){
       var configNode = ele;
       for(i in objJSON.NodeStatus.process_status){
         serv = objJSON.NodeStatus.process_status[i];
-        configNode.services[serv.module_id] = new contrailNode.Service(serv.module_id);
+        configNode.services[serv.module_id] = new Service(serv.module_id);
         if(serv.state == 'Functional'){
           configNode.services[serv.module_id].status = "OK";
         }
