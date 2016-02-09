@@ -21,7 +21,7 @@ var _updateContrailSet = function(callback){
     // updateVrouter
   ], function(err, res){
     //console.log(contrailSet);
-    //contrailNode.updateEvent.emit('updateEvent');
+    contrailNode.updateEvent.emit('updateEvent');
     if(callback){
       callback(null);
     }

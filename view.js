@@ -55,7 +55,7 @@ exports.run = function(callback){
       }
     },
     columnSpacing: 10,
-    columnWidth: [16, 12]
+    columnWidth: [30, 12]
   });
 
   nodeTable.focus();
