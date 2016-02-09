@@ -10,3 +10,4 @@
 * Manage errors
 * package.json
 * Check if callback are null or undefined
+* Mesure How much time take the contrailSet update
