@@ -2,6 +2,7 @@ var async = require('async');
 var util = require('util');
 var unirest = require('unirest');
 var contrailNode = require('./contrailNode');
+var ConfigSet = require('./ConfigSet');
 var ControlSet = require('./ControlSet');
 var control = require('./control');
 
@@ -17,6 +18,7 @@ var initStructure = function(callback){
     vRouterSet : [],
     nodes:{}
   };
+  contrailSet.configSet = new ConfigSet(CONFIG.analytics);
   contrailSet.controlSet = new ControlSet(CONFIG.analytics);
   callback(null);
 }
