@@ -1,0 +1,23 @@
+{
+  "name": "contrail-peering-monitor",
+  "version": "0.0.3",
+  "description": "Command line utilities to monitor contrail cluster",
+  "main": "contrail-peering-monitor",
+  "dependencies": {
+    "async": "~1.5.2",
+    "commander": "~2.9.0",
+    "blessed": "~0.1.81",
+    "unirest": "~0.4.2",
+    "blessed-contrib": "~2.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.cloudwatt.com:bruno.fernando/contrail-peering-monitor.git"
+  },
+  "author": "Bruno FERNANDO",
+  "license": "BSD-2-Clause"
+}
