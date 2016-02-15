@@ -17,10 +17,10 @@ program
 async.waterfall([
   async.apply(init.initConfig, program),
   init.run,
-  // function(callback){
-  //   setInterval(init._updateContrailSet,3000,callback);
-  // },
+  //function(callback){
+  //   setInterval(control.updateContrailSet,5000,callback);
+  //},
   view.run
 ],function(err, res){
-  console.log(util.inspect(contrailSet, false, null));
+  //console.log(util.inspect(contrailSet, false, null));
 })

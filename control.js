@@ -24,9 +24,10 @@ var _updateContrailSet = function(callback){
       contrailSet.vRouterSet.update(callback);
     }
   ], function(err, res){
-    //console.log(contrailSet);
+    //console.log(contrailSet.configSet.nodes[0].services);
     contrailNode.updateEvent.emit('updateEvent');
     if(callback){
+      //console.log("");
       callback(null);
     }
   });
