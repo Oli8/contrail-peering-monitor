@@ -11,17 +11,18 @@ var VRouterNode = function(name, dataSource){
 }
 
 VRouterNode.prototype.update = function(callback){
-  var node = this;
+  var self = this;
   async.waterfall([
     // href: url to request objJSON
     async.apply(control.requestJSON, this.dataSource),
     // objJSON: config JSON requested; callback: next function
     function(objJSON, callback){
+      self.services = {};
       for(i in objJSON.NodeStatus.process_status){
         serv = objJSON.NodeStatus.process_status[i];
-        node.services[serv.module_id] = new Service(serv.module_id);
+        self.services[serv.module_id] = new Service(serv.module_id);
         if(serv.state == 'Functional'){
-          node.services[serv.module_id].status = "OK";
+          self.services[serv.module_id].status = "OK";
         }
       }
       callback(null);

@@ -18,8 +18,10 @@ ConfigNode.prototype.update = function(callback){
     async.apply(control.requestJSON, this.dataSource),
     // objJSON: config JSON requested; callback: next function
     function(objJSON, callback){
+      self.services = {};
       for(i in objJSON.NodeStatus.process_status){
         serv = objJSON.NodeStatus.process_status[i];
+        // console.log(serv.module_id +" + "+serv.state);
         self.services[serv.module_id] = new Service(serv.module_id);
         if(serv.state == 'Functional'){
           self.services[serv.module_id].status = "OK";
@@ -28,6 +30,8 @@ ConfigNode.prototype.update = function(callback){
       callback(null);
     }
   ], function(err, obj){
+    //console.log(self.name);
+    //console.log(self.services);
     callback(null);
   });
 };

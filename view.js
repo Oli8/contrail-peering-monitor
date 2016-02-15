@@ -141,7 +141,6 @@ exports.run = function(callback){
 
   updateNodeView();
   screen.render();
-  //setInterval(updateNodeView, 4000);
   nodeTable.on("element select", function(){
     updateServiceView(nodeTable.rows.value);
     screen.log(nodeTable.rows.value);
@@ -152,10 +151,10 @@ exports.run = function(callback){
     screen.render();
   }, CONFIG.time);
 
-  // contrailNode.updateEvent.on('updateEvent',function(){
-  //   updateNodeView();
-  //   screen.render();
-  // });
+  contrailNode.updateEvent.on('updateEvent',function(){
+    updateNodeView();
+    screen.render();
+  });
 }
 
 //this.run(null);
