@@ -19,7 +19,7 @@ var initStructure = function(callback){
     vRouterSet : [],
     nodes:{}
   };
-  contrailSet.configSet = new ConfigSet(CONFIG.analytics);
+  contrailSet.configSet = new ConfigSet('d-ocfcld-0000');
   contrailSet.controlSet = new ControlSet(CONFIG.analytics);
   contrailSet.vRouterSet = new VRouterSet(CONFIG.analytics);
   callback(null);

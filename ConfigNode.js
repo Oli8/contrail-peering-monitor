@@ -36,4 +36,41 @@ ConfigNode.prototype.update = function(callback){
   });
 };
 
+ConfigNode.prototype.updateFromDisco = function(callback){
+  var self = this;
+  async.waterfall([
+    // objJSON: config JSON requested; callback: next function
+    function(callback){
+      self.services = {};
+      for(i in self.dataSource){
+        var name = self.dataSource[i]['client_id'].split(':')[0];
+        var service = self.dataSource[i]['client_id'].split(':')[1];
+        if(name == self.name){
+          self.services[service] = new Service(service);
+        }
+      }
+      callback(null);
+    },
+    function(callback){
+      async.forEachOf(self.services, function(service, serviceName, callback){
+        async.waterfall([
+          async.apply(service, self.name), // service -> port
+          utils.portScan,
+          function(status, callback){
+            if(status == open){
+              service.status = 'OK';
+            }
+            callback(null);
+          }
+        ], function(err, obj){
+          callback(null);
+        }
+      );
+    }
+  );
+}
+], function(err, obj){
+  callback(null);
+});
+};
 module.exports = ConfigNode;

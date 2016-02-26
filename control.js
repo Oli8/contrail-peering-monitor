@@ -7,15 +7,15 @@ var _requestJSON = function(href, callback){
   unirest.get(href)
   .header('application/json')
   .end(function(response){
-     objJSON = response.body;
-     callback(null, objJSON);
+    objJSON = response.body;
+    callback(null, objJSON);
   });
 };
 
 var _updateContrailSet = function(callback){
   async.parallel([
     function(callback){
-      contrailSet.configSet.update(callback);
+      contrailSet.configSet.updateFromDisco(callback);
     },
     function(callback){
       contrailSet.controlSet.update(callback);
