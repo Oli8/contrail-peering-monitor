@@ -9,18 +9,24 @@ var view = require('./view');
 
 program
 .version('0.0.3')
-.usage('-a <hostname> [options]')
+.usage('[options]')
+.option('-d, --discovery <hostname>', 'Discovery address')
 .option('-a, --analytics <hostname>', 'Analytics address')
 .option('-t, --time-to-refresh <time>', 'Interval to refresh data (in ms)', parseInt)
 .parse(process.argv);
 
+init.initFromEnv();
+init.initFromOptions(program);
+console.log('global.config -->\n'+util.inspect(config, false, null));
+
+/*
 async.waterfall([
-  async.apply(init.initConfig, program),
   init.run,
   //function(callback){
   //   setInterval(control.updateContrailSet,5000,callback);
   //},
-  view.run
+  //view.run
 ],function(err, res){
-  //console.log(util.inspect(contrailSet, false, null));
+  console.log(util.inspect(contrailSet, false, null));
 })
+*/

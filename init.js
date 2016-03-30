@@ -7,19 +7,21 @@ var ControlSet = require('./ControlSet');
 var VRouterSet = require('./VRouterSet');
 var control = require('./control');
 
-var _CONFIG = {
+global.config = {
+  discovery : null,
   analytics : null,
   time : 4000
 };
 
 var initStructure = function(callback){
   global.contrailSet = {
+    dataSource : global.config.discovery,
     configSet : [],
     controlSet : [],
     vRouterSet : [],
     nodes:{}
   };
-  contrailSet.configSet = new ConfigSet('d-ocfcld-0000');
+  contrailSet.configSet = new ConfigSet('localhost');
   contrailSet.controlSet = new ControlSet(CONFIG.analytics);
   contrailSet.vRouterSet = new VRouterSet(CONFIG.analytics);
   callback(null);
@@ -34,18 +36,27 @@ var _run = function(callback){
   });
 }
 
-var _initConfig = function(program, callback){
-  if(!program.analytics){
-    console.log("Error");
-    process.exit();
+var initFromEnv = function(){
+  global.config.discovery = process.env.CONTRAIL_DISCOVERY_URL ||
+  process.env.CONTRAIL_DISCOVERY ||
+  process.env.CONTRAIL_DISCO_URL ||
+  process.env.CONTRAIL_DISCO ||
+  process.env.DISCOVERY_URL;
+}
+
+var initFromOptions = function(program, callback){
+  if(program.discovery){
+    global.config.discovery = program.discovery;
+  }
+  if(program.analytics){
+    global.config.analytics = program.analytics;
   }
   if(program.timeToRefresh){
-    _CONFIG.time = program.timeToRefresh;
+    global.config.time = program.timeToRefresh;
   }
-  _CONFIG.analytics = program.analytics;
-  callback(null);
 }
 
 exports.run = _run;
-exports.initConfig = _initConfig;
-global.CONFIG = _CONFIG;
+exports.initFromOptions = initFromOptions;
+exports.initFromEnv = initFromEnv;
+//global.CONFIG = CONFIG;
