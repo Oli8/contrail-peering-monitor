@@ -1,15 +1,24 @@
 var portscanner = require('portscanner');
+var unirest = require('unirest');
+
+var requestJSON = function(href, callback){
+  unirest.get(href)
+  .header('application/json')
+  .end(function(response){
+    objJSON = response.body;
+    callback(null, objJSON);
+  });
+};
 
 var portScan = function(port, hostname, callback){
   portscanner.checkPortStatus(port, hostname, function(error, status) {
     // Status is 'open' if currently in use or 'closed' if available
-    console.log(status);
-    callback(status);
+    callback(null, status);
   });
 }
 
 var clientTypeFilter = function(elem){
-  if(elem[this.field] in this.filter){
+  if(this.filter.indexOf(elem[this.field])!=-1){
     return true;
   }
   return false;
@@ -26,16 +35,21 @@ var uniq = function(tab){
 }
 
 
-/////////////////////////////////////////////
+var stdin = function(fn){
+  var data = '';
 
-var extractClientType = function(tab, typeTab){
-  var res;
-  for(i in tab){
-    if(tab[i][1] in typeTab){
-      res.push(tab[i][0]);
-    }
-  }
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('readable', function() {
+    var chunk = process.stdin.read();
+    if (chunk !== null) data += chunk;
+  });
+
+  process.stdin.on('end', function() {
+    fn(null, JSON.parse(data));
+  });
 }
+
+/////////////////////////////////////////////
 
 var splitClientNameFromService = function(tab){
   var res = [];
@@ -53,5 +67,8 @@ var extractField = function(tab, field){
   return res;
 }
 exports.portScan = portScan;
+exports.requestJSON = requestJSON;
 exports.uniq = uniq;
 exports.extractField = extractField;
+exports.clientTypeFilter = clientTypeFilter;
+exports.stdin = stdin;
