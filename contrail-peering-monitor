@@ -2,10 +2,10 @@
 var async = require('async');
 var program = require('commander');
 var util = require('util');
-var contrailNode = require('./contrailNode');
+var EventEmitter = require('events').EventEmitter;
 var init = require('./init');
-var control = require('./control');
-var view = require('./view');
+var ContrailSet = require('./ContrailSet');
+var View = require('./view/view.js');
 
 program
 .version('0.0.3')
@@ -17,16 +17,44 @@ program
 
 init.initFromEnv();
 init.initFromOptions(program);
-console.log('global.config -->\n'+util.inspect(config, false, null));
+//console.log('global.config -->\n'+util.inspect(config, false, null, true));
+var eventEmitter = new EventEmitter();
 
-/*
+var init = function(){
+  global.contrailSet = new ContrailSet(global.config.discovery, eventEmitter);
+  global.view = new View(eventEmitter);
+}
+
+//@async
+var update = function(callback){
+  async.waterfall([
+    function(callback){
+      global.contrailSet.update(callback);
+    },
+    function(callback){
+      global.view.update(global.contrailSet);
+      callback(null);
+    }
+  ], function(err){
+    //console.log('UPDATE');
+    callback(null);
+  });
+}
+
 async.waterfall([
-  init.run,
-  //function(callback){
-  //   setInterval(control.updateContrailSet,5000,callback);
-  //},
-  //view.run
+  function(callback){
+    init();
+    callback(null);
+  },
+  function(callback){
+    update(callback);
+  },
+  function(callback){
+    setInterval(function(){
+      update(callback);
+    },
+    2000);
+  }
 ],function(err, res){
-  console.log(util.inspect(contrailSet, false, null));
-})
-*/
+  //console.log(JSON.stringify(global.contrailSet.configSet));
+});
