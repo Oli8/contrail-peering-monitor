@@ -1,6 +1,8 @@
 var portscanner = require('portscanner');
 var unirest = require('unirest');
+var fs = require('fs');
 
+//@async
 var requestJSON = function(href, callback){
   unirest.get(href)
   .header('application/json')
@@ -10,6 +12,14 @@ var requestJSON = function(href, callback){
   });
 };
 
+//@async
+var fileToJSON = function(fileName, callback){
+  fs.readFile(fileName, {encoding: 'utf8'}, function(err, data){
+    callback(null, JSON.parse(data));
+  });
+}
+
+//@async
 var portScan = function(port, hostname, callback){
   portscanner.checkPortStatus(port, hostname, function(error, status) {
     // Status is 'open' if currently in use or 'closed' if available
@@ -68,6 +78,7 @@ var extractField = function(tab, field){
 }
 exports.portScan = portScan;
 exports.requestJSON = requestJSON;
+exports.fileToJSON = fileToJSON;
 exports.uniq = uniq;
 exports.extractField = extractField;
 exports.clientTypeFilter = clientTypeFilter;
