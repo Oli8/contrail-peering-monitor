@@ -1,76 +1,129 @@
 var async = require('async');
-var control = require('./control');
+var utils = require('./utils');
 var Service = require('./Service');
 
 // ConfigNode
-var ConfigNode = function(name, dataSource){
+var ConfigNode = function(name){
   this.name = name;
-  this.dataSource = dataSource;
-  this.type = 'config';
+  this.type = 'ConfigNode';
   this.ipAddress = [];
-  this.services = {};
+  this.services = [];
 }
 
-ConfigNode.prototype.update = function(callback){
-  var self = this;
-  async.waterfall([
-    // href: url to request objJSON
-    async.apply(control.requestJSON, this.dataSource),
-    // objJSON: config JSON requested; callback: next function
-    function(objJSON, callback){
-      self.services = {};
-      for(i in objJSON.NodeStatus.process_status){
-        serv = objJSON.NodeStatus.process_status[i];
-        // console.log(serv.module_id +" + "+serv.state);
-        self.services[serv.module_id] = new Service(serv.module_id);
-        if(serv.state == 'Functional'){
-          self.services[serv.module_id].status = "OK";
-        }
-      }
-      callback(null);
+var parseDiscoveryClientObject = function(objJSON, name){
+  var filterType = ['ApiServer', 'DiscoveryService', 'Service Monitor', 'Schema',
+  'contrail-api', 'contrail-discovery', 'contrail-svc-monitor', 'contrail-schema'];
+
+  var nodesList = objJSON.services;
+  nodesList = nodesList.filter(utils.clientTypeFilter, {field: 'client_type', filter: filterType});
+
+  var configList = {
+    ipAddress: [],
+    services: []
+  }
+  var services = [];
+  //console.log(require('util').inspect(nodesList, { depth: null }));
+  for(i in nodesList){
+    if((nodesList[i]['client_id'].split(':')[0]==name)&&
+    (services.indexOf(nodesList[i]['client_type'])==-1)){
+      services.push(nodesList[i]['client_type']);
+      configList.services.push({name: nodesList[i]['client_type'], hostname: nodesList[i]['remote']});
     }
-  ], function(err, obj){
-    //console.log(self.name);
-    //console.log(self.services);
+    if((nodesList[i]['client_id'].split(':')[0]==name)&&
+    (configList.ipAddress.indexOf(nodesList[i]['remote'])==-1)){
+      configList.ipAddress.push(nodesList[i]['remote']);
+    }
+  }
+  return configList;
+}
+
+var parseDiscoveryServiceObject = function(objJSON, name){
+  var filterType = ['IfmapServer', 'contrail-ifmap'];
+
+  var nodesList = objJSON.services;
+  nodesList = nodesList.filter(utils.clientTypeFilter, {field: 'service_type', filter: filterType});
+
+  var configList = {
+    services: []
+  }
+  var services = [];
+  //console.log(require('util').inspect(nodesList, { depth: null }));
+  for(i in nodesList){
+    if((nodesList[i]['service_id'].split(':')[0]==name)&&
+    (services.indexOf(nodesList[i]['service_type'])==-1)){
+      services.push(nodesList[i]['service_type']);
+      configList.services.push({name: nodesList[i]['service_type'], hostname: nodesList[i]['remote']});
+    }
+  }
+  return configList;
+}
+
+var parseDiscoveryObject = function(discoClientJSON, discoServiceJSON, name){
+  var configlist = parseDiscoveryClientObject(discoClientJSON, name);
+  var otherServices = parseDiscoveryServiceObject(discoServiceJSON, name).services;
+
+  configlist.services = configlist.services.concat(otherServices);
+
+  return configlist;
+}
+
+ConfigNode.prototype.update = function(discoClientJSON, discoServiceJSON){
+  var self = this;
+  var configList = parseDiscoveryObject(discoClientJSON, discoServiceJSON, this.name);
+  this.ipAddress = configList.ipAddress;
+  for(i in configList.services){
+    self.services[i] = new Service(configList.services[i]['name'], configList.services[i]['hostname']);
+  }
+}
+
+//@async
+ConfigNode.prototype.checkServices = function(callback){
+  var self = this;
+  async.forEachOf(self.services, function(service, key, callback){
+    service.check(callback);
+  }, function(err){
     callback(null);
   });
-};
+}
 
-ConfigNode.prototype.updateFromDisco = function(callback){
-  var self = this;
-  async.waterfall([
-    // objJSON: config JSON requested; callback: next function
-    function(callback){
-      self.services = {};
-      for(i in self.dataSource){
-        var name = self.dataSource[i]['client_id'].split(':')[0];
-        var service = self.dataSource[i]['client_id'].split(':')[1];
-        if(name == self.name){
-          self.services[service] = new Service(service);
-        }
-      }
-      callback(null);
-    },
-    function(callback){
-      async.forEachOf(self.services, function(service, serviceName, callback){
-        async.waterfall([
-          async.apply(service, self.name), // service -> port
-          utils.portScan,
-          function(status, callback){
-            if(status == open){
-              service.status = 'OK';
-            }
-            callback(null);
-          }
-        ], function(err, obj){
-          callback(null);
-        }
-      );
-    }
-  );
+var main = function(){
+  var name = 'd-ocfcld-0000';
+	utils.stdin(function(err, data){
+    //console.log(data[0]);
+		var result = parseDiscoveryObject(data[1], data[0], name);
+		console.log('##########################\n# Parse Discovery Object #\n##########################\n'+require('util').inspect(result, { depth: null }));
+	});
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = ConfigNode;
+
+/*
+ConfigNode.prototype.updateFromAnalytics = function(callback){
+var self = this;
+async.waterfall([
+// href: url to request objJSON
+async.apply(utils.requestJSON, this.dataSource),
+// objJSON: config JSON requested; callback: next function
+function(objJSON, callback){
+self.services = {};
+for(i in objJSON.NodeStatus.process_status){
+serv = objJSON.NodeStatus.process_status[i];
+// console.log(serv.module_id +" + "+serv.state);
+self.services[serv.module_id] = new Service(serv.module_id);
+if(serv.state == 'Functional'){
+self.services[serv.module_id].status = "OK";
+}
+}
+callback(null);
 }
 ], function(err, obj){
-  callback(null);
+//console.log(self.name);
+//console.log(self.services);
+callback(null);
 });
-};
-module.exports = ConfigNode;
+}
+*/
