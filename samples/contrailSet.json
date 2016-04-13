@@ -1,0 +1,824 @@
+{
+  "nodes": {},
+  "configSet": {
+    "type": "ConfigSet",
+    "nodes": [
+      {
+        "services": [
+          {
+            "status": "DOWN",
+            "port": 8082,
+            "hostname": "10.35.2.18",
+            "name": "contrail-api"
+          },
+          {
+            "status": "DOWN",
+            "port": 5998,
+            "hostname": "10.35.2.18",
+            "name": "contrail-discovery"
+          },
+          {
+            "status": "DOWN",
+            "port": 8087,
+            "hostname": "10.35.2.18",
+            "name": "contrail-schema"
+          },
+          {
+            "status": "DOWN",
+            "port": 8088,
+            "hostname": "10.35.2.18",
+            "name": "contrail-svc-monitor"
+          },
+          {
+            "status": "DOWN",
+            "port": 8443,
+            "hostname": "10.35.2.18",
+            "name": "IfmapServer"
+          }
+        ],
+        "ipAddress": [
+          "10.35.2.18"
+        ],
+        "type": "ConfigNode",
+        "name": "d-ocfcld-0000"
+      },
+      {
+        "services": [
+          {
+            "status": "DOWN",
+            "port": 8082,
+            "hostname": "10.35.2.20",
+            "name": "contrail-api"
+          },
+          {
+            "status": "DOWN",
+            "port": 5998,
+            "hostname": "10.35.2.20",
+            "name": "contrail-discovery"
+          },
+          {
+            "status": "DOWN",
+            "port": 8443,
+            "hostname": "10.35.2.20",
+            "name": "IfmapServer"
+          }
+        ],
+        "ipAddress": [
+          "10.35.2.20"
+        ],
+        "type": "ConfigNode",
+        "name": "d-ocfcld-0001"
+      }
+    ]
+  },
+  "controlSet": {
+    "types": "ControlSet",
+    "nodes": [
+      {
+        "services": [
+          {
+            "status": "DOWN",
+            "port": 8083,
+            "hostname": "d-octclc-0000",
+            "name": "contrail-control"
+          },
+          {
+            "status": "DOWN",
+            "port": 5269,
+            "hostname": "d-octclc-0000",
+            "name": "xmpp-server"
+          }
+        ],
+        "ipAddress": [
+          "127.0.1.1"
+        ],
+        "type": "ControlNode",
+        "name": "d-octclc-0000"
+      },
+      {
+        "services": [
+          {
+            "status": "DOWN",
+            "port": 8083,
+            "hostname": "d-octclc-0001",
+            "name": "contrail-control"
+          },
+          {
+            "status": "DOWN",
+            "port": 5269,
+            "hostname": "d-octclc-0001",
+            "name": "xmpp-server"
+          }
+        ],
+        "ipAddress": [
+          "127.0.1.1"
+        ],
+        "type": "ControlNode",
+        "name": "d-octclc-0001"
+      }
+    ]
+  },
+  "discoveryClient": {
+    "path": {
+      "/services.json": {
+        "url": "http://localhost:5998/services.json",
+        "data": {
+          "services": [
+            {
+              "oper_state": "up",
+              "ts_created": 1458060210,
+              "heartbeat": 1460042463,
+              "service_type": "OpServer",
+              "service_id": "d-oalcld-0000:OpServer",
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.36",
+                "port": 8081
+              },
+              "status": "up",
+              "remote": "10.35.2.36",
+              "in_use": 2,
+              "hbcount": 0,
+              "sequence": "1459888744d-ocfcld-0000",
+              "ts_use": 16,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1458059989,
+              "heartbeat": 1460042463,
+              "service_type": "OpServer",
+              "service_id": "d-oalcld-0001:OpServer",
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.37",
+                "port": 8081
+              },
+              "status": "up",
+              "remote": "10.35.2.37",
+              "in_use": 2,
+              "hbcount": 0,
+              "sequence": "1459888744d-ocfcld-0000",
+              "ts_use": 17,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1459887171,
+              "service_id": "d-ocfcld-0000:IfmapServer",
+              "service_type": "IfmapServer",
+              "heartbeat": 1460042462,
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.18",
+                "port": "8443"
+              },
+              "status": "up",
+              "remote": "10.35.2.18",
+              "in_use": 2,
+              "hbcount": 0,
+              "sequence": "1459888744d-ocfcld-0001",
+              "ts_use": 3,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1459860257,
+              "service_id": "d-ocfcld-0001:IfmapServer",
+              "service_type": "IfmapServer",
+              "heartbeat": 1460042463,
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.20",
+                "port": "8443"
+              },
+              "status": "up",
+              "remote": "10.35.2.20",
+              "in_use": 2,
+              "hbcount": 0,
+              "sequence": "1459888744d-ocfcld-0000",
+              "ts_use": 2,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1458060208,
+              "heartbeat": 1460042466,
+              "service_type": "xmpp-server",
+              "service_id": "d-octclc-0000:xmpp-server",
+              "oper_state_msg": "OK",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.19",
+                "port": "5269"
+              },
+              "status": "up",
+              "remote": "10.35.2.19",
+              "in_use": 3,
+              "hbcount": 0,
+              "sequence": "1459889391d-ocfcld-0001",
+              "ts_use": 38,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "down",
+              "ts_created": 1458060006,
+              "service_id": "d-octclc-0001:xmpp-server",
+              "service_type": "xmpp-server",
+              "heartbeat": 1460042465,
+              "oper_state_msg": "Initial Registration",
+              "prov_state": "down",
+              "info": {
+                "ip-address": "10.35.2.24",
+                "port": "5269"
+              },
+              "status": "down",
+              "remote": "10.35.2.24",
+              "sequence": "1459889395d-ocfcld-0001",
+              "hbcount": 0,
+              "in_use": 3,
+              "ts_use": 37,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1458060209,
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector",
+              "heartbeat": 1460042464,
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.36",
+                "port": "8086"
+              },
+              "status": "up",
+              "remote": "10.35.2.36",
+              "sequence": "1459888757d-ocfcld-0001",
+              "hbcount": 0,
+              "in_use": 13,
+              "ts_use": 36,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1458059988,
+              "heartbeat": 1460042463,
+              "service_type": "Collector",
+              "service_id": "d-oalcld-0001:Collector",
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.37",
+                "port": "8086"
+              },
+              "status": "up",
+              "remote": "10.35.2.37",
+              "in_use": 13,
+              "hbcount": 0,
+              "sequence": "1459888761d-ocfcld-0001",
+              "ts_use": 37,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1458059935,
+              "heartbeat": 1460042462,
+              "service_type": "ApiServer",
+              "service_id": "d-ocfcld-0000:ApiServer",
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.18",
+                "port": "8082"
+              },
+              "status": "up",
+              "remote": "10.35.2.18",
+              "in_use": 2,
+              "hbcount": 0,
+              "sequence": "1459888744d-ocfcld-0001",
+              "ts_use": 16,
+              "admin_state": "up"
+            },
+            {
+              "oper_state": "up",
+              "ts_created": 1458060028,
+              "service_id": "d-ocfcld-0001:ApiServer",
+              "service_type": "ApiServer",
+              "heartbeat": 1460042463,
+              "oper_state_msg": "",
+              "prov_state": "up",
+              "info": {
+                "ip-address": "10.35.2.20",
+                "port": "8082"
+              },
+              "status": "up",
+              "remote": "10.35.2.20",
+              "sequence": "1459888744d-ocfcld-0001",
+              "hbcount": 0,
+              "in_use": 2,
+              "ts_use": 15,
+              "admin_state": "up"
+            }
+          ]
+        }
+      },
+      "/clients.json": {
+        "url": "http://localhost:5998/clients.json",
+        "data": {
+          "services": [
+            {
+              "heartbeat": 1459888799,
+              "remote": "10.35.2.40",
+              "ttl": 29,
+              "ttl_expires": 4668,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0000:ContrailWebUI",
+              "service_id": "d-oalcld-0000:OpServer",
+              "service_type": "OpServer"
+            },
+            {
+              "heartbeat": 1459888799,
+              "remote": "10.35.2.40",
+              "ttl": 29,
+              "ttl_expires": 4668,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0000:ContrailWebUI",
+              "service_id": "d-oalcld-0001:OpServer",
+              "service_type": "OpServer"
+            },
+            {
+              "heartbeat": 1459888752,
+              "remote": "10.35.2.40",
+              "ttl": 31,
+              "ttl_expires": 4656,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0001:ContrailWebUI",
+              "service_id": "d-oalcld-0000:OpServer",
+              "service_type": "OpServer"
+            },
+            {
+              "heartbeat": 1459888752,
+              "remote": "10.35.2.40",
+              "ttl": 31,
+              "ttl_expires": 4656,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0001:ContrailWebUI",
+              "service_id": "d-oalcld-0001:OpServer",
+              "service_type": "OpServer"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 1213,
+              "ttl_expires": 68,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0000:contrail-control",
+              "service_id": "d-ocfcld-0000:IfmapServer",
+              "service_type": "IfmapServer"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 1213,
+              "ttl_expires": 68,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0000:contrail-control",
+              "service_id": "d-ocfcld-0001:IfmapServer",
+              "service_type": "IfmapServer"
+            },
+            {
+              "heartbeat": 1459889275,
+              "remote": "127.0.1.1",
+              "ttl": 1621,
+              "ttl_expires": 78,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0001:contrail-control",
+              "service_id": "d-ocfcld-0000:IfmapServer",
+              "service_type": "IfmapServer"
+            },
+            {
+              "heartbeat": 1459889275,
+              "remote": "127.0.1.1",
+              "ttl": 1621,
+              "ttl_expires": 78,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0001:contrail-control",
+              "service_id": "d-ocfcld-0001:IfmapServer",
+              "service_type": "IfmapServer"
+            },
+            {
+              "heartbeat": 1459888746,
+              "remote": "127.0.1.1",
+              "ttl": 1318,
+              "ttl_expires": 107,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0000:contrail-vrouter-agent:0",
+              "service_id": "d-octclc-0000:xmpp-server",
+              "service_type": "xmpp-server"
+            },
+            {
+              "heartbeat": 1459888746,
+              "remote": "127.0.1.1",
+              "ttl": 1318,
+              "ttl_expires": 107,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0000:contrail-vrouter-agent:0",
+              "service_id": "d-octclc-0001:xmpp-server",
+              "service_type": "xmpp-server"
+            },
+            {
+              "heartbeat": 1459888762,
+              "remote": "127.0.1.1",
+              "ttl": 1778,
+              "ttl_expires": 91,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0001:contrail-vrouter-agent:0",
+              "service_id": "d-octclc-0000:xmpp-server",
+              "service_type": "xmpp-server"
+            },
+            {
+              "heartbeat": 1459888762,
+              "remote": "127.0.1.1",
+              "ttl": 1778,
+              "ttl_expires": 91,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0001:contrail-vrouter-agent:0",
+              "service_id": "d-octclc-0001:xmpp-server",
+              "service_type": "xmpp-server"
+            },
+            {
+              "heartbeat": 1459888761,
+              "remote": "127.0.1.1",
+              "ttl": 1429,
+              "ttl_expires": 87,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0002:contrail-vrouter-agent:0",
+              "service_id": "d-octclc-0000:xmpp-server",
+              "service_type": "xmpp-server"
+            },
+            {
+              "heartbeat": 1459888761,
+              "remote": "127.0.1.1",
+              "ttl": 1429,
+              "ttl_expires": 87,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0002:contrail-vrouter-agent:0",
+              "service_id": "d-octclc-0001:xmpp-server",
+              "service_type": "xmpp-server"
+            },
+            {
+              "heartbeat": 1459888769,
+              "remote": "127.0.1.1",
+              "ttl": 1773,
+              "ttl_expires": 77,
+              "instances": 2,
+              "client_type": "contrail-query-engine",
+              "client_id": "d-oalcld-0000:contrail-query-engine",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888769,
+              "remote": "127.0.1.1",
+              "ttl": 1773,
+              "ttl_expires": 77,
+              "instances": 2,
+              "client_type": "contrail-query-engine",
+              "client_id": "d-oalcld-0000:contrail-query-engine",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 1377,
+              "ttl_expires": 64,
+              "instances": 2,
+              "client_type": "contrail-query-engine",
+              "client_id": "d-oalcld-0001:contrail-query-engine",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 1377,
+              "ttl_expires": 64,
+              "instances": 2,
+              "client_type": "contrail-query-engine",
+              "client_id": "d-oalcld-0001:contrail-query-engine",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888744,
+              "remote": "10.35.2.18",
+              "ttl": 819,
+              "ttl_expires": 67,
+              "instances": 2,
+              "client_type": "contrail-api",
+              "client_id": "d-ocfcld-0000:contrail-api",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888744,
+              "remote": "10.35.2.18",
+              "ttl": 819,
+              "ttl_expires": 67,
+              "instances": 2,
+              "client_type": "contrail-api",
+              "client_id": "d-ocfcld-0000:contrail-api",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887958,
+              "remote": "10.35.2.18",
+              "ttl": 372,
+              "ttl_expires": 194,
+              "instances": 2,
+              "client_type": "contrail-discovery",
+              "client_id": "d-ocfcld-0000:contrail-discovery",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887958,
+              "remote": "10.35.2.18",
+              "ttl": 372,
+              "ttl_expires": 194,
+              "instances": 2,
+              "client_type": "contrail-discovery",
+              "client_id": "d-ocfcld-0000:contrail-discovery",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888756,
+              "remote": "10.35.2.18",
+              "ttl": 1761,
+              "ttl_expires": 74,
+              "instances": 2,
+              "client_type": "contrail-schema",
+              "client_id": "d-ocfcld-0000:contrail-schema",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888756,
+              "remote": "10.35.2.18",
+              "ttl": 1761,
+              "ttl_expires": 74,
+              "instances": 2,
+              "client_type": "contrail-schema",
+              "client_id": "d-ocfcld-0000:contrail-schema",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "10.35.2.18",
+              "ttl": 1406,
+              "ttl_expires": 70,
+              "instances": 2,
+              "client_type": "contrail-svc-monitor",
+              "client_id": "d-ocfcld-0000:contrail-svc-monitor",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "10.35.2.18",
+              "ttl": 1406,
+              "ttl_expires": 70,
+              "instances": 2,
+              "client_type": "contrail-svc-monitor",
+              "client_id": "d-ocfcld-0000:contrail-svc-monitor",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888743,
+              "remote": "10.35.2.20",
+              "ttl": 1744,
+              "ttl_expires": 82,
+              "instances": 2,
+              "client_type": "contrail-api",
+              "client_id": "d-ocfcld-0001:contrail-api",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888743,
+              "remote": "10.35.2.20",
+              "ttl": 1744,
+              "ttl_expires": 82,
+              "instances": 2,
+              "client_type": "contrail-api",
+              "client_id": "d-ocfcld-0001:contrail-api",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "10.35.2.20",
+              "ttl": 1685,
+              "ttl_expires": 0,
+              "instances": 2,
+              "client_type": "contrail-discovery",
+              "client_id": "d-ocfcld-0001:contrail-discovery",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "10.35.2.20",
+              "ttl": 1685,
+              "ttl_expires": 0,
+              "instances": 2,
+              "client_type": "contrail-discovery",
+              "client_id": "d-ocfcld-0001:contrail-discovery",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 1265,
+              "ttl_expires": 66,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0000:contrail-vrouter-agent:0",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 1265,
+              "ttl_expires": 66,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0000:contrail-vrouter-agent:0",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888748,
+              "remote": "127.0.1.1",
+              "ttl": 330,
+              "ttl_expires": 64,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0001:contrail-vrouter-agent:0",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888748,
+              "remote": "127.0.1.1",
+              "ttl": 330,
+              "ttl_expires": 64,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0001:contrail-vrouter-agent:0",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 575,
+              "ttl_expires": 73,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0002:contrail-vrouter-agent:0",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 575,
+              "ttl_expires": 73,
+              "instances": 2,
+              "client_type": "contrail-vrouter-agent:0",
+              "client_id": "d-ocnclc-0002:contrail-vrouter-agent:0",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 832,
+              "ttl_expires": 70,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0000:contrail-control",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 832,
+              "ttl_expires": 70,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0000:contrail-control",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 777,
+              "ttl_expires": 77,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0001:contrail-control",
+              "service_id": "d-oalcld-0000:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459887957,
+              "remote": "127.0.1.1",
+              "ttl": 777,
+              "ttl_expires": 77,
+              "instances": 2,
+              "client_type": "contrail-control",
+              "client_id": "d-octclc-0001:contrail-control",
+              "service_id": "d-oalcld-0001:Collector",
+              "service_type": "Collector"
+            },
+            {
+              "heartbeat": 1459888864,
+              "remote": "10.35.2.40",
+              "ttl": 8,
+              "ttl_expires": 4731,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0000:ContrailWebUI",
+              "service_id": "d-ocfcld-0000:ApiServer",
+              "service_type": "ApiServer"
+            },
+            {
+              "heartbeat": 1459888864,
+              "remote": "10.35.2.40",
+              "ttl": 8,
+              "ttl_expires": 4731,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0000:ContrailWebUI",
+              "service_id": "d-ocfcld-0001:ApiServer",
+              "service_type": "ApiServer"
+            },
+            {
+              "heartbeat": 1459888744,
+              "remote": "10.35.2.40",
+              "ttl": 31,
+              "ttl_expires": 4630,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0001:ContrailWebUI",
+              "service_id": "d-ocfcld-0000:ApiServer",
+              "service_type": "ApiServer"
+            },
+            {
+              "heartbeat": 1459888744,
+              "remote": "10.35.2.40",
+              "ttl": 31,
+              "ttl_expires": 4630,
+              "instances": 20,
+              "client_type": "ContrailWebUI",
+              "client_id": "d-owucld-0001:ContrailWebUI",
+              "service_id": "d-ocfcld-0001:ApiServer",
+              "service_type": "ApiServer"
+            }
+          ]
+        }
+      }
+    },
+    "name": "localhost"
+  }
+}

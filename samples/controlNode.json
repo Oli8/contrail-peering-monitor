@@ -1,0 +1,21 @@
+{
+  "services": [
+    {
+      "status": "DOWN",
+      "port": 8083,
+      "hostname": "d-octclc-0000",
+      "name": "contrail-control"
+    },
+    {
+      "status": "DOWN",
+      "port": 5269,
+      "hostname": "d-octclc-0000",
+      "name": "xmpp-server"
+    }
+  ],
+  "ipAddress": [
+    "127.0.1.1"
+  ],
+  "type": "ControlNode",
+  "name": "d-octclc-0000"
+}
