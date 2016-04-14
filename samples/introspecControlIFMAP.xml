@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="/universal_parse.xsl"?>
+<IFMapPeerServerInfoResp type="sandesh">
+  <server_info type="struct" identifier="1">
+    <IFMapPeerServerInfo>
+      <url type="string" identifier="1"/>
+      <init_done type="bool" identifier="3">true</init_done>
+    </IFMapPeerServerInfo>
+  </server_info>
+  <server_conn_info type="struct" identifier="2">
+    <IFMapPeerServerConnInfo>
+      <publisher_id type="string" identifier="1">control-d-octclc-0000-249593558-1</publisher_id>
+      <session_id type="string" identifier="2">1825895435-1023743569-1656696599-453555039</session_id>
+      <sequence_number type="u64" identifier="3">0</sequence_number>
+      <connection_status type="string" identifier="4">Up since 24:07:36.530081</connection_status>
+      <host type="string" identifier="5">10.35.2.18</host>
+      <port type="string" identifier="6">8443</port>
+      <end_of_rib_computed type="bool" identifier="7">true</end_of_rib_computed>
+      <end_of_rib_timer_running type="bool" identifier="8">false</end_of_rib_timer_running>
+      <start_stale_entries_cleanup type="bool" identifier="9">false</start_stale_entries_cleanup>
+      <stale_entries_cleanup_timer_running type="bool" identifier="10">false</stale_entries_cleanup_timer_running>
+    </IFMapPeerServerConnInfo>
+  </server_conn_info>
+  <stats_info type="struct" identifier="3">
+    <IFMapPeerServerStatsInfo>
+      <rx_msgs type="u64" identifier="1">1505</rx_msgs>
+      <tx_msgs type="u64" identifier="2">1506</tx_msgs>
+      <reconnect_attempts type="u64" identifier="3">0</reconnect_attempts>
+      <timedout_entries type="struct" identifier="4">
+        <IFMapPeerTimedoutEntries>
+          <list_count type="i32" identifier="1">0</list_count>
+          <timedout_list type="list" identifier="2">
+            <list type="struct" size="0"/>
+          </timedout_list>
+        </IFMapPeerTimedoutEntries>
+      </timedout_entries>
+    </IFMapPeerServerStatsInfo>
+  </stats_info>
+  <sm_info type="struct" identifier="4">
+    <IFMapStateMachineInfo>
+      <state type="string" identifier="1">PollResponseWait</state>
+      <last_state type="string" identifier="2">SendPoll</last_state>
+      <last_state_change_at type="string" identifier="3">00:15:57.836557</last_state_change_at>
+      <last_event type="string" identifier="4">ifsm::EvWriteSuccess</last_event>
+      <last_event_at type="string" identifier="5">00:15:57.836575</last_event_at>
+      <workq_enqueues type="u64" identifier="6">4528</workq_enqueues>
+      <workq_dequeues type="u64" identifier="7">4528</workq_dequeues>
+      <workq_length type="u64" identifier="8">0</workq_length>
+    </IFMapStateMachineInfo>
+  </sm_info>
+  <ds_peer_info type="struct" identifier="5">
+    <IFMapDSPeerInfo>
+      <num_peers type="i32" identifier="1">2</num_peers>
+      <ds_peer_list type="list" identifier="2">
+        <list type="struct" size="2">
+          <IFMapDSPeerInfoEntry>
+            <host type="string" identifier="1">10.35.2.18</host>
+            <port type="string" identifier="2">8443</port>
+            <in_use type="bool" identifier="3">true</in_use>
+          </IFMapDSPeerInfoEntry>
+          <IFMapDSPeerInfoEntry>
+            <host type="string" identifier="1">10.35.2.20</host>
+            <port type="string" identifier="2">8443</port>
+            <in_use type="bool" identifier="3">false</in_use>
+          </IFMapDSPeerInfoEntry>
+        </list>
+      </ds_peer_list>
+      <service_name type="string" identifier="3">IfmapServer</service_name>
+      <subscriber_name type="string" identifier="4"/>
+      <static_peer type="string" identifier="5"/>
+      <current_peer type="string" identifier="6">10.35.2.18:8443 (DS)</current_peer>
+      <ds_response_count type="u64" identifier="7">79</ds_response_count>
+      <last_response_ago type="string" identifier="8">00:00:33.340789</last_response_ago>
+      <using_non_ds_peer_count type="u64" identifier="9">0</using_non_ds_peer_count>
+      <no_best_peer_count type="u64" identifier="10">0</no_best_peer_count>
+    </IFMapDSPeerInfo>
+  </ds_peer_info>
+  <more type="bool" identifier="0">false</more>
+</IFMapPeerServerInfoResp>
