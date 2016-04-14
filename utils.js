@@ -25,7 +25,6 @@ var requestXML = function(href, callback){
 
 //@async
 var xmlToJSON = function(objXML, callback){
-  console.log(objXML);
   xml2js.parseString(objXML, function (err, objJSON) {
     if (err) throw err;
     callback(null, objJSON);

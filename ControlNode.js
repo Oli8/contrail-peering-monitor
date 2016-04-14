@@ -1,11 +1,13 @@
 var async = require('async');
 var utils = require('./utils');
+var IntrospecControlClient = require('./IntrospecControlClient');
 var Service = require('./Service');
 
 // ControlNode
 var ControlNode = function(name){
   this.name = name;
   this.type = 'ControlNode';
+  this.introspecControlClient = new IntrospecControlClient(name);
   this.ipAddress = [];
   this.services = [];
 }
@@ -73,6 +75,12 @@ ControlNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   for(i in controlList.services){
     self.services[i] = new Service(controlList.services[i]['name'], self.name);
   }
+}
+
+//@async
+ControlNode.prototype.getIntrospec = function(callback){
+  var self = this;
+  self.introspecControlClient.get(callback);
 }
 
 //@async

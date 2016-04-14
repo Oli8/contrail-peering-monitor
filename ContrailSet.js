@@ -27,6 +27,9 @@ ContrailSet.prototype.update = function(callback){
     },
     function(callback){
       self.checkServices(callback);
+    },
+    function(callback){
+      self.getIntrospec(callback);
     }
   ], function(err){
     //console.log(util.inspect(self, { showHidden: true, depth: null, colors: false }));
@@ -71,6 +74,18 @@ ContrailSet.prototype.updateSet = function(callback){
 function(callback){
 contrailSet.vRouterSet.update(callback);
 }*/
+
+//@async
+ContrailSet.prototype.getIntrospec = function(callback){
+  var self = this;
+  async.parallel([
+    function(callback){
+      self.controlSet.getIntrospec(callback);
+    }
+  ], function(err){
+    callback(null);
+  });
+};
 
 //@async
 ContrailSet.prototype.checkServices = function(callback){
