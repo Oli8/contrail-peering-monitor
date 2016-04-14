@@ -68,6 +68,21 @@ var parseDiscoveryObject = function(discoClientJSON, discoServiceJSON, name){
   return controlList;
 }
 
+var parseIntrospecIfmap= function(introspecJSON){
+  var ifmapJSON = introspecJSON['IFMapPeerServerInfoResp']['ds_peer_info'][0];
+  var ifmap = {
+    peer: [],
+    current: null
+  };
+  var ifmapPeer = ifmapJSON['IFMapDSPeerInfo'][0]['ds_peer_list'][0]['list'][0]['IFMapDSPeerInfoEntry'];
+  for(i in ifmapPeer){
+    ifmap.peer.push({host: ifmapPeer[i]['host'][0]['_'],
+     inUse: ifmapPeer[i]['in_use'][0]['_']});
+  }
+  ifmap.current = ifmapJSON['IFMapDSPeerInfo'][0]['current_peer'][0]['_'].split(':')[0];
+  return ifmap;
+}
+
 ControlNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   var self = this;
   var controlList = parseDiscoveryObject(discoClientJSON, discoServiceJSON, this.name);
@@ -97,7 +112,8 @@ var main = function(){
   var name = 'd-octclc-0001';
   utils.stdin(function(err, data){
     //console.log(data[0]);
-    var result = parseDiscoveryObject(data[1], data[0], name);
+    //var result = parseDiscoveryObject(data[1], data[0], name);
+    var result = parseIntrospecIfmap(data);
     console.log('##########################\n# Parse Discovery Object #\n##########################\n'+require('util').inspect(result, { depth: null }));
   });
 }
