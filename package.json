@@ -9,7 +9,8 @@
     "blessed": "~0.1.81",
     "unirest": "~0.4.2",
     "blessed-contrib": "~2.5.3",
-    "portscanner": "~1.0.0"
+    "portscanner": "~1.0.0",
+    "xml2js": "~0.4.16"
   },
   "devDependencies": {},
   "scripts": {
