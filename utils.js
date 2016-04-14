@@ -1,6 +1,7 @@
 var portscanner = require('portscanner');
 var unirest = require('unirest');
 var fs = require('fs');
+var xml2js = require('xml2js');
 
 //@async
 var requestJSON = function(href, callback){
@@ -11,6 +12,25 @@ var requestJSON = function(href, callback){
     callback(null, objJSON);
   });
 };
+
+//@async
+var requestXML = function(href, callback){
+  unirest.get(href)
+  //.header('application/xml')
+  .end(function(response){
+    objXML = response.body;
+    callback(null, objXML);
+  });
+};
+
+//@async
+var xmlToJSON = function(objXML, callback){
+  console.log(objXML);
+  xml2js.parseString(objXML, function (err, objJSON) {
+    if (err) throw err;
+    callback(null, objJSON);
+  });
+}
 
 //@async
 var fileToJSON = function(fileName, callback){
@@ -78,6 +98,8 @@ var extractField = function(tab, field){
 }
 exports.portScan = portScan;
 exports.requestJSON = requestJSON;
+exports.requestXML = requestXML;
+exports.xmlToJSON = xmlToJSON;
 exports.fileToJSON = fileToJSON;
 exports.uniq = uniq;
 exports.extractField = extractField;
