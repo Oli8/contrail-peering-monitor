@@ -58,6 +58,14 @@ ControlSet.prototype.update = function(discoClientJSON, discoServiceJSON, callba
 	callback(null);
 }
 
+ControlSet.prototype.updateFromIntrospec = function(configList, callback){
+  var self = this;
+  for(i in self.nodes){
+		self.nodes[i].updateFromIntrospec(configList);
+	}
+	callback(null);
+}
+
 //@async
 ControlSet.prototype.getIntrospec = function(callback){
 	var self = this;
