@@ -3,8 +3,8 @@ var async = require('async');
 var program = require('commander');
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
-var init = require('./init');
-var ContrailSet = require('./ContrailSet');
+var init = require('./src/init');
+var ContrailSet = require('./src/Set/ContrailSet');
 var View = require('./view/view.js');
 
 program
