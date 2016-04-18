@@ -1,6 +1,6 @@
 {
   "name": "contrail-peering-monitor",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Command line utilities to monitor contrail cluster",
   "main": "contrail-peering-monitor",
   "dependencies": {

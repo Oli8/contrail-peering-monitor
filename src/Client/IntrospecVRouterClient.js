@@ -7,7 +7,7 @@ var IntrospecVRouterClient = function(name){
   this.path = {};
   this.path['/Snh_AgentXmppConnectionStatusReq']= {
     data : {},
-    url : "http://"+'localhost'+":8085/Snh_AgentXmppConnectionStatusReq" // localhost --> name
+    url : "http://"+name+":8085/Snh_AgentXmppConnectionStatusReq" // localhost --> name
   }
 }
 

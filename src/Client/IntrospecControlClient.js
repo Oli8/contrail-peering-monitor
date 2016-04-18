@@ -7,7 +7,7 @@ var IntrospecControlClient = function(name){
   this.path = {};
   this.path['/Snh_IFMapPeerServerInfoReq']= {
     data : {},
-    url : "http://"+'localhost'+":8083/Snh_IFMapPeerServerInfoReq" // localhost --> name
+    url : "http://"+name+":8083/Snh_IFMapPeerServerInfoReq" // localhost --> name
   }
 }
 
