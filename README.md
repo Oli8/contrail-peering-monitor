@@ -9,10 +9,15 @@
  v.1.0.0
 ## Usage
 > ./contrail-peering-monitor --help
+
 >  Usage: contrail-peering-monitor -a <hostname> [options]
+
 >  Options:
+
 >    -h, --help                    output usage information
+
 >    -V, --version                 output the version number
+
 >    -d, --discovery <hostname>    Discovery address
 
 ## Prerequisites

@@ -35,7 +35,7 @@ View.prototype.update = function(contrailSet){
 
 var screen = blessed.screen({
   smartCSR: true,
-  log: 'log/view.log'
+  //log: 'log/view.log'
 });
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
