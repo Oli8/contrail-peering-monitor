@@ -1,12 +1,13 @@
 var async = require('async');
 var utils = require('../utils');
+var IntrospecVRouterClient = require('../Client/IntrospecVRouterClient');
 var Service = require('../Entity/Service');
 
 // VRouterNode
 var VRouterNode = function(name, dataSource){
   this.name = name;
   this.type = 'VRouterNode';
-
+  this.introspecVRouterClient = new IntrospecVRouterClient(name);
   this.ipAddress = [];
   this.services = [];
 }
@@ -61,8 +62,14 @@ VRouterNode.prototype.checkServices = function(callback){
   });
 }
 
+//@async
+VRouterNode.prototype.getIntrospec = function(callback){
+  var self = this;
+  self.introspecVRouterClient.get(callback);
+}
+
 var main = function(){
-  var name = 'd-ocnclc-0001';
+  var name = 'p-ocnclc-0001';
   var controlList = [
     {name: 'd-octcld-0000', ipAddress: '10.35.2.18'},
     {name: 'd-octcld-0001', ipAddress: '10.35.2.20'}
@@ -70,7 +77,7 @@ var main = function(){
   utils.stdin(function(err, data){
     //console.log(data[0]);
     //var result = parseDiscoveryObject(data[1], data[0], name);
-    var result = parseDiscoveryObject(data[1], name);
+    var result = parseDiscoveryObject(data[0], name);
     console.log('##########################\n# Parse Discovery Object #\n##########################\n'+require('util').inspect(result, { depth: null }));
   });
 }
