@@ -117,11 +117,10 @@ ContrailSet.prototype.checkServices = function(callback){
     },
     function(callback){
       self.controlSet.checkServices(callback);
-    }
-    /*
+    },
     function(callback){
-      self.vRouterSet.check();
-    }*/
+      self.vRouterSet.checkServices(callback);
+    }
   ], function(err){
     callback(null);
   });
