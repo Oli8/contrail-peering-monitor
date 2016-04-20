@@ -37,7 +37,7 @@ ContrailSet.prototype.update = function(callback){
   ], function(err){
     //console.log(util.inspect(self, { showHidden: true, depth: null, colors: false }));
     // console.log(JSON.stringify(self.configSet));
-    //console.log(JSON.stringify(self.vRouterSet));
+    //console.log(JSON.stringify(self.vRouterSet.nodes[1]));
     //process.exit(0);
     //self.eventEmitter.emit('updated', self);
     callback(null);
@@ -102,6 +102,9 @@ ContrailSet.prototype.getIntrospec = function(callback){
   async.parallel([
     function(callback){
       self.controlSet.getIntrospec(callback);
+    },
+    function(callback){
+      self.vRouterSet.getIntrospec(callback);
     }
   ], function(err){
     callback(null);
