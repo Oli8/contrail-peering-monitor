@@ -51,6 +51,7 @@ var parseDiscoveryServiceObject = function(objJSON, name){
   nodesList = nodesList.filter(utils.clientTypeFilter, {field: 'service_type', filter: filterType});
 
   var controlList = {
+    ipAddress: [],
     services: []
   }
   var services = [];
@@ -61,14 +62,20 @@ var parseDiscoveryServiceObject = function(objJSON, name){
       services.push(nodesList[i]['service_type']);
       controlList.services.push({name: nodesList[i]['service_type'], hostname: nodesList[i]['remote']});
     }
+    if((nodesList[i]['service_id'].split(':')[0]==name)&&
+    (controlList.ipAddress.indexOf(nodesList[i]['remote'])==-1)){
+      controlList.ipAddress.push(nodesList[i]['remote']);
+    }
   }
   return controlList;
 }
 
 var parseDiscoveryObject = function(discoClientJSON, discoServiceJSON, name){
   var controlList = parseDiscoveryClientObject(discoClientJSON, name);
-  var otherServices = parseDiscoveryServiceObject(discoServiceJSON, name).services;
+  var otherControlList = parseDiscoveryServiceObject(discoServiceJSON, name);
+  var otherServices = otherControlList.services;
 
+  controlList.ipAddress = otherControlList.ipAddress;
   controlList.services = controlList.services.concat(otherServices);
 
   return controlList;
