@@ -37,7 +37,7 @@ ContrailSet.prototype.update = function(callback){
   ], function(err){
     //console.log(util.inspect(self, { showHidden: true, depth: null, colors: false }));
     // console.log(JSON.stringify(self.configSet));
-    //console.log(JSON.stringify(self.vRouterSet.nodes[1]));
+    //console.log(JSON.stringify(self.vRouterSet.nodes[1].xmppPeer));
     //process.exit(0);
     //self.eventEmitter.emit('updated', self);
     callback(null);
@@ -84,12 +84,19 @@ contrailSet.vRouterSet.update(callback);
 ContrailSet.prototype.updateFromIntrospec = function(callback){
   var self = this;
   var configList = [];
+  var controlList = [];
   for(i in self.configSet.nodes){
     configList.push({name: self.configSet.nodes[i].name, ipAddress: self.configSet.nodes[i].ipAddress[0]});
   }
-  async.parallel([
+  for(i in self.controlSet.nodes){
+    controlList.push({name: self.controlSet.nodes[i].name, ipAddress: self.controlSet.nodes[i].ipAddress[0]});
+  }
+  async.waterfall([
     function(callback){
       self.controlSet.updateFromIntrospec(configList, callback);
+    },
+    function(callback){
+      self.vRouterSet.updateFromIntrospec(controlList, callback);
     }
   ], function(err){
     callback(null);

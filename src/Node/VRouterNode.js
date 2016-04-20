@@ -10,6 +10,7 @@ var VRouterNode = function(name, dataSource){
   this.introspecVRouterClient = new IntrospecVRouterClient(name);
   this.ipAddress = [];
   this.services = [];
+  this.xmppPeer = {};
 }
 
 var parseDiscoveryClientObject = function(objJSON, name){
@@ -43,6 +44,45 @@ var parseDiscoveryObject = function(discoClientJSON, name){
   return vRouterList;
 }
 
+var parseIntrospecXmpp = function(introspecJSON){
+  var status = null;
+  var xmppPeer = introspecJSON['AgentXmppConnectionStatus']['peer'][0]['list'][0]['AgentXmppData'];
+  var xmpp = {
+    active: null,
+    backup: null
+  };
+  for(i in xmppPeer){
+    status = 'Backup';
+    if(xmppPeer[i]['cfg_controller'][0]['_'] == 'Yes'){
+      xmpp.active = xmppPeer[i]['controller_ip'][0]['_'];
+      continue;
+    }
+    if(xmppPeer[i]['cfg_controller'][0]['_'] == 'No'){
+      xmpp.backup = xmppPeer[i]['controller_ip'][0]['_'];
+      continue;
+    }
+  }
+  return xmpp;
+}
+
+var ipToHostnameXmpp = function(xmppPeer, controlList){
+  for(i in controlList){
+    if(xmppPeer.active == controlList[i].ipAddress){
+      xmppPeer.active = controlList[i].name;
+    }
+    if(xmppPeer.backup == controlList[i].ipAddress){
+      xmppPeer.backup = controlList[i].name;
+    }
+  }
+  return xmppPeer;
+}
+
+var updateXmpp = function(introspecJSON, controlList){
+  var xmppPeer = parseIntrospecXmpp(introspecJSON);
+  xmppPeer = ipToHostnameXmpp(xmppPeer, controlList);
+  return xmppPeer;
+}
+
 VRouterNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   var self = this;
   var vRouterList = parseDiscoveryObject(discoClientJSON, this.name);
@@ -50,6 +90,11 @@ VRouterNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   for(i in vRouterList.services){
     self.services[i] = new Service(vRouterList.services[i]['name'], self.name);
   }
+}
+
+VRouterNode.prototype.updateFromIntrospec = function(controlList){
+  var self = this;
+  self.xmppPeer = updateXmpp(self.introspecVRouterClient.path['/Snh_AgentXmppConnectionStatusReq'].data, controlList);
 }
 
 //@async
@@ -71,13 +116,15 @@ VRouterNode.prototype.getIntrospec = function(callback){
 var main = function(){
   var name = 'p-ocnclc-0001';
   var controlList = [
-    {name: 'd-octcld-0000', ipAddress: '10.35.2.18'},
-    {name: 'd-octcld-0001', ipAddress: '10.35.2.20'}
+    {name: 'd-octcld-0000', ipAddress: '10.35.2.19'},
+    {name: 'd-octcld-0001', ipAddress: '10.35.2.24'}
   ]
   utils.stdin(function(err, data){
     //console.log(data[0]);
     //var result = parseDiscoveryObject(data[1], data[0], name);
-    var result = parseDiscoveryObject(data[0], name);
+    //var result = parseDiscoveryObject(data[0], name);
+    var result = updateXmpp(data, controlList);
+    //result = ipToHostnameXmpp(result, controlList);
     console.log('##########################\n# Parse Discovery Object #\n##########################\n'+require('util').inspect(result, { depth: null }));
   });
 }

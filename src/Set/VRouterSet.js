@@ -58,6 +58,14 @@ VRouterSet.prototype.update = function(discoClientJSON, discoServiceJSON, callba
 	callback(null);
 }
 
+VRouterSet.prototype.updateFromIntrospec = function(controlList, callback){
+  var self = this;
+  for(i in self.nodes){
+		self.nodes[i].updateFromIntrospec(controlList);
+	}
+	callback(null);
+}
+
 //@async
 VRouterSet.prototype.getIntrospec = function(callback){
 	var self = this;
