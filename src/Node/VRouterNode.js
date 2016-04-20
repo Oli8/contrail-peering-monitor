@@ -43,7 +43,7 @@ var parseDiscoveryObject = function(discoClientJSON, name){
   return vRouterList;
 }
 
-VRouterNode.prototype.update = function(discoClientJSON){
+VRouterNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   var self = this;
   var vRouterList = parseDiscoveryObject(discoClientJSON, this.name);
   this.ipAddress = vRouterList.ipAddress;

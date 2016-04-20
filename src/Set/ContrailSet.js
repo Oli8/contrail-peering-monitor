@@ -1,8 +1,8 @@
 var async = require('async');
 var ConfigSet = require('./ConfigSet');
 var ControlSet = require('./ControlSet');
-//var VRouterSet = require('./VRouterSet');
-var ContrailNode = require('../Node/ContrailNode');
+var VRouterSet = require('./VRouterSet');
+//var ContrailNode = require('../Node/ContrailNode');
 var DiscoveryClient = require('../Client/DiscoveryClient');
 var util = require('util');
 
@@ -11,7 +11,7 @@ var ContrailSet = function(discovery, eventEmitter){
   this.discoveryClient = new DiscoveryClient(discovery);
   this.configSet = new ConfigSet();
   this.controlSet = new ControlSet();
-  //this.vRouterSet = new VRouterSet();
+  this.vRouterSet = new VRouterSet();
   this.nodes={};
 };
 
@@ -37,7 +37,7 @@ ContrailSet.prototype.update = function(callback){
   ], function(err){
     //console.log(util.inspect(self, { showHidden: true, depth: null, colors: false }));
     // console.log(JSON.stringify(self.configSet));
-    //console.log(JSON.stringify(self.controlSet.nodes[0].ifmapPeer));
+    //console.log(JSON.stringify(self.vRouterSet));
     //process.exit(0);
     //self.eventEmitter.emit('updated', self);
     callback(null);
@@ -67,6 +67,9 @@ ContrailSet.prototype.updateSet = function(callback){
     },
     function(callback){
       self.controlSet.update(self.discoveryClient.path['/clients.json'].data, self.discoveryClient.path['/services.json'].data, callback);
+    },
+    function(callback){
+      self.vRouterSet.update(self.discoveryClient.path['/clients.json'].data, self.discoveryClient.path['/services.json'].data, callback);
     }
   ], function(err){
     callback(null);
