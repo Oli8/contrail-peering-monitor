@@ -4,6 +4,7 @@ var util = require('util');
 var utils = require('../src/utils');
 var ConfigSetView = require('./ConfigSetView');
 var ControlSetView = require('./ControlSetView');
+var VRouterSetView = require('./VRouterSetView');
 
 var ContrailSetView = function(contrailSet){
   this.data = contrailSet;
@@ -43,6 +44,7 @@ ContrailSetView.prototype.update = function(screen){
 
   this.children.push(new ConfigSetView(this.data.configSet, offset, 0*offset));
   this.children.push(new ControlSetView(this.data.controlSet, offset, 1*offset));
+  this.children.push(new VRouterSetView(this.data.controlSet, this.data.vRouterSet, offset, 2*offset));
 
   for(i in this.children){
     this.view.append(this.children[i].view);
