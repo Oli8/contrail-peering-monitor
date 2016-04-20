@@ -88,7 +88,7 @@ ControlSet.prototype.checkServices = function(callback){
 
 var main = function(){
 	utils.stdin(function(err, data){
-		var result = parseDiscoveryObject(data[1]);
+		var result = parseDiscoveryObject(data[0]);
 		console.log('##########################\n# Parse Discovery Object #\n##########################\n'+result);
 	});
 }

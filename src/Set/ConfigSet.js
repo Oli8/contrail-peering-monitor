@@ -70,7 +70,7 @@ ConfigSet.prototype.checkServices = function(callback){
 
 var main = function(){
 	utils.stdin(function(err, data){
-		var result = parseDiscoveryObject(data);
+		var result = parseDiscoveryObject(data[0], data[1]);
 		console.log('##########################\n# Parse Discovery Object #\n##########################\n'+result);
 	});
 }
