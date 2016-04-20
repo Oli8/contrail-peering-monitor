@@ -1,9 +1,9 @@
 var async = require('async');
-var utils = require('./utils');
-//var VRouterNode = require('./VRouterNode');
+var utils = require('../utils');
+var VRouterNode = require('../Node/VRouterNode');
 
 // VrouterSet
-var VRouterSet = function(dataSource){
+var VRouterSet = function(){
 	this.nodes = [];
 	this.type = "VRouterSet";
 }
@@ -58,9 +58,19 @@ VRouterSet.prototype.update = function(discoClientJSON, discoServiceJSON, callba
 	callback(null);
 }
 
+//@async
+VRouterSet.prototype.checkServices = function(callback){
+	var self = this;
+  async.forEachOf(self.nodes, function(node, key, callback){
+    node.checkServices(callback);
+  }, function(err){
+    callback(null);
+  });
+}
+
 var main = function(){
 	utils.stdin(function(err, data){
-		var result = parseDiscoveryObject(data[1]);
+		var result = parseDiscoveryObject(data[0]);
 		console.log('##########################\n# Parse Discovery Object #\n##########################\n'+result);
 	});
 }
