@@ -16,7 +16,7 @@ var initFromEnv = function(){
   process.env.DISCOVERY_URL;
 }
 
-var initFromOptions = function(program, callback){
+var initFromOptions = function(program){
   if(program.discovery){
     global.config.discovery = program.discovery;
   }
@@ -28,6 +28,14 @@ var initFromOptions = function(program, callback){
   }
 }
 
+var checkConfig = function(){
+  if(!global.config.discovery){
+    console.log('You have to precise DISCOVERY');
+    process.exit(1);
+  }
+}
+
 exports.initFromOptions = initFromOptions;
 exports.initFromEnv = initFromEnv;
+exports.checkConfig = checkConfig;
 //global.CONFIG = CONFIG;

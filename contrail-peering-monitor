@@ -17,6 +17,7 @@ program
 
 init.initFromEnv();
 init.initFromOptions(program);
+init.checkConfig();
 //console.log('global.config -->\n'+util.inspect(config, false, null, true));
 var eventEmitter = new EventEmitter();
 
