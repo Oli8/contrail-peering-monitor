@@ -6,9 +6,9 @@ var xml2js = require('xml2js');
 //@async
 var requestJSON = function(href, callback){
   unirest.get(href)
-  .header('application/json')
+  .header('Accept','application/json')
   .end(function(response){
-    objJSON = response.body;
+    var objJSON = response.body;
     callback(null, objJSON);
   });
 };
@@ -16,9 +16,9 @@ var requestJSON = function(href, callback){
 //@async
 var requestXML = function(href, callback){
   unirest.get(href)
-  //.header('application/xml')
+  .header('Accept','application/xml')
   .end(function(response){
-    objXML = response.body;
+    var objXML = response.body;
     callback(null, objXML);
   });
 };
