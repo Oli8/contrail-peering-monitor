@@ -37,8 +37,10 @@ var parseData = function(data){
     var service = data.services[i];
     result.data.push([service['name'], service['status']]);
   }
-  for(i in data.ifmapPeer.peer){
-    result.data.push(['IFMAP '+data.ifmapPeer.peer[i].status, data.ifmapPeer.peer[i].host]);
+  if(data.ifmapPeer){
+    for(i in data.ifmapPeer.peer){
+      result.data.push(['IFMAP '+data.ifmapPeer.peer[i].status, data.ifmapPeer.peer[i].host]);
+    }
   }
   return result;
 }

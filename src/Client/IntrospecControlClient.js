@@ -7,6 +7,7 @@ var IntrospecControlClient = function(name){
   this.path = {};
   this.path['/Snh_IFMapPeerServerInfoReq']= {
     data : {},
+    error : false,
     url : "http://"+name+":8083/Snh_IFMapPeerServerInfoReq" // localhost --> name
   }
 }
@@ -14,7 +15,6 @@ var IntrospecControlClient = function(name){
 // @async
 IntrospecControlClient.prototype.getDataFromPath = function(path, callback){
   var self = this;
-  //console.log(require('util').inspect(this, { depth: 2 }));
   async.waterfall([
     async.apply(utils.requestXML, self.path[path].url),
     utils.xmlToJSON,
@@ -22,7 +22,10 @@ IntrospecControlClient.prototype.getDataFromPath = function(path, callback){
       self.path[path].data = objJSON;
       callback(null);
     }
-  ],function(err){
+  ], function(err){
+    if(err){
+      self.path[path].error = true;
+    }
     callback(null);
   });
 }

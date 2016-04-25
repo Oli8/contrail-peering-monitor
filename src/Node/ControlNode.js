@@ -135,7 +135,10 @@ ControlNode.prototype.update = function(discoClientJSON, discoServiceJSON){
 
 ControlNode.prototype.updateFromIntrospec = function(configList){
   var self = this;
-  self.ifmapPeer = updateIfmap(self.introspecControlClient.path['/Snh_IFMapPeerServerInfoReq'].data, configList);
+  self.ifmapPeer = null;
+  if(!self.introspecControlClient.path['/Snh_IFMapPeerServerInfoReq'].error){
+    self.ifmapPeer = updateIfmap(self.introspecControlClient.path['/Snh_IFMapPeerServerInfoReq'].data, configList);
+  }
 }
 
 //@async
