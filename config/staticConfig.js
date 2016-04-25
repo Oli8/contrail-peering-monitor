@@ -8,7 +8,7 @@ staticConfig.port['contrail-discovery'] = staticConfig.port['DiscoveryService'] 
 staticConfig.port['contrail-ifmap'] = staticConfig.port['IfmapServer'] = 8443;
 staticConfig.port['contrail-control'] = staticConfig.port['ControlNode'] = 8083;
 staticConfig.port['xmpp-server'] = 5269;
-staticConfig.port['contrail-vrouter'] = 8085;
+staticConfig.port['contrail-vrouter-agent:0'] = 8085;
 staticConfig.port['contrail-analytics-api'] = 8081;
 
 module.exports = staticConfig;
