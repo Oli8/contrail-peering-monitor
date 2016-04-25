@@ -42,6 +42,11 @@ ContrailSetView.prototype.append = function(screen){
 ContrailSetView.prototype.update = function(screen){
   var offset = (100/3);
 
+  if(this.data.error){
+    this.view.content = this.data.error;
+    return 0;
+  }
+
   this.children.push(new ConfigSetView(this.data.configSet, offset, 0*offset));
   this.children.push(new ControlSetView(this.data.controlSet, offset, 1*offset));
   this.children.push(new VRouterSetView(this.data.controlSet, this.data.vRouterSet, offset, 2*offset));

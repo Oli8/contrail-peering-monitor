@@ -12,7 +12,8 @@ var ContrailSet = function(discovery, eventEmitter){
   this.configSet = new ConfigSet();
   this.controlSet = new ControlSet();
   this.vRouterSet = new VRouterSet();
-  this.nodes={};
+  this.nodes = {};
+  this.error = null;
 };
 
 //@async
@@ -35,7 +36,10 @@ ContrailSet.prototype.update = function(callback){
       self.updateFromIntrospec(callback);
     }
   ], function(err){
-    //console.log(JSON.stringify(self.vRouterSet));
+    if(err){
+      self.error = 'Discovery not responding';
+    }
+    //console.log(JSON.stringify(self.controlSet.nodes[0]));
     //process.exit(0);
     //self.eventEmitter.emit('updated', self);
     callback(null);
@@ -52,7 +56,7 @@ ContrailSet.prototype.getJSON = function(callback){
     //self.analyticsClient.get
   ], function(err){
     //console.log(""+self.discoveryClient);
-    callback(null);
+    callback(err);
   });
 }
 

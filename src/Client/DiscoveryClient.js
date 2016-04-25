@@ -26,7 +26,7 @@ DiscoveryClient.prototype.getDataFromPath = function(path, callback){
       callback(null);
     }
   ],function(err){
-    callback(null);
+    callback(err);
   });
 }
 
@@ -37,7 +37,7 @@ DiscoveryClient.prototype.get = function(callback){
     //console.log('ITEM :'+key);
     self.getDataFromPath(key, callback);
   }, function(err){
-    callback(null);
+    callback(err);
   });
 }
 
