@@ -8,8 +8,13 @@ var requestJSON = function(href, callback){
   unirest.get(href)
   .header('Accept','application/json')
   .end(function(response){
-    var objJSON = response.body;
-    callback(null, objJSON);
+    if(response.error){
+      callback('Request JSON failed for '+href); // error
+    }
+    else{
+      var objJSON = response.body;
+      callback(null, objJSON);
+    }
   });
 };
 
@@ -18,8 +23,13 @@ var requestXML = function(href, callback){
   unirest.get(href)
   .header('Accept','application/xml')
   .end(function(response){
-    var objXML = response.body;
-    callback(null, objXML);
+    if(response.error){
+      callback('Request XML failed for '+href); // error
+    }
+    else{
+      var objXML = response.body;
+      callback(null, objXML);
+    }
   });
 };
 
