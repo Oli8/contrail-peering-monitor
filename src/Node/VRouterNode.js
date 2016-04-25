@@ -94,7 +94,10 @@ VRouterNode.prototype.update = function(discoClientJSON, discoServiceJSON){
 
 VRouterNode.prototype.updateFromIntrospec = function(controlList){
   var self = this;
-  self.xmppPeer = updateXmpp(self.introspecVRouterClient.path['/Snh_AgentXmppConnectionStatusReq'].data, controlList);
+  self.xmppPeer = null;
+  if(!self.introspecVRouterClient.path['/Snh_AgentXmppConnectionStatusReq'].error){
+    self.xmppPeer = updateXmpp(self.introspecVRouterClient.path['/Snh_AgentXmppConnectionStatusReq'].data, controlList);
+  }
 }
 
 //@async

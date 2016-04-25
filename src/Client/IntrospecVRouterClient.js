@@ -7,6 +7,7 @@ var IntrospecVRouterClient = function(name){
   this.path = {};
   this.path['/Snh_AgentXmppConnectionStatusReq']= {
     data : {},
+    error : false,
     url : "http://"+name+":8085/Snh_AgentXmppConnectionStatusReq" // localhost --> name
   }
 }
@@ -23,6 +24,9 @@ IntrospecVRouterClient.prototype.getDataFromPath = function(path, callback){
       callback(null);
     }
   ],function(err){
+    if(err){
+      self.path[path].error = true;
+    }
     callback(null);
   });
 }
