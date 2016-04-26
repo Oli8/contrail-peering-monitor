@@ -3,6 +3,7 @@ var contrib = require('blessed-contrib');
 var async = require('async');
 var utils = require('../src/utils');
 var ContrailSetView = require('./ContrailSetView');
+var ClusterView = require('./ClusterView');
 
 var View = function(eventEmitter){
   this.eventEmitter = eventEmitter;
@@ -12,7 +13,7 @@ var View = function(eventEmitter){
 }
 
 var updateView = function(self, data){
-  self.contrailView = new ContrailSetView(data);
+  self.contrailView = new ClusterView(data);
   self.contrailView.update(screen);
   screen.append(self.contrailView.view);
 }

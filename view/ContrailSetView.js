@@ -6,17 +6,18 @@ var ConfigSetView = require('./ConfigSetView');
 var ControlSetView = require('./ControlSetView');
 var VRouterSetView = require('./VRouterSetView');
 
-var ContrailSetView = function(contrailSet){
+var ContrailSetView = function(contrailSet, width, offset){
   this.data = contrailSet;
   this.type = 'ContrailSetView';
-  this.view = initView();
+  this.view = initView(width, offset);
   this.children = [];
 }
 
-var initView = function(){
+var initView = function(width, offset){
   var box = blessed.box({
-    width: '100%',
+    width: width+'%',
     height: '100%',
+    left: offset+'%',
     border: {
       type: 'line'
     },
@@ -42,10 +43,10 @@ ContrailSetView.prototype.append = function(screen){
 ContrailSetView.prototype.update = function(screen){
   var offset = (100/3);
 
-  if(this.data.error){
-    this.view.content = this.data.error;
-    return 0;
-  }
+  // if(this.data.error){
+  //   this.view.content = this.data.error;
+  //   return 0;
+  // }
 
   this.children.push(new ConfigSetView(this.data.configSet, offset, 0*offset));
   this.children.push(new ControlSetView(this.data.controlSet, offset, 1*offset));
