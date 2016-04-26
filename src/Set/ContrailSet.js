@@ -39,7 +39,7 @@ ContrailSet.prototype.update = function(callback){
     if(err){
       self.error = 'Discovery not responding';
     }
-    //console.log(JSON.stringify(self.controlSet.nodes[0]));
+    //console.log(JSON.stringify(self.vRouterSet.nodes[0]));
     //process.exit(0);
     //self.eventEmitter.emit('updated', self);
     callback(null);

@@ -5,7 +5,8 @@ var unirest = require('unirest');
 global.config = {
   discovery : null,
   analytics : null,
-  time : 4000
+  timeout : 5000,
+  refreshTime : 5500
 };
 
 var initFromEnv = function(){
@@ -23,8 +24,11 @@ var initFromOptions = function(program){
   if(program.analytics){
     global.config.analytics = program.analytics;
   }
-  if(program.timeToRefresh){
-    global.config.time = program.timeToRefresh;
+  if(program.timeout){
+    global.config.timeout = program.timeout;
+  }
+  if(program.refreshTime){
+    global.config.refreshTime = program.refreshTime;
   }
 }
 

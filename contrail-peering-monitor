@@ -12,7 +12,8 @@ program
 .usage('[options]')
 .option('-d, --discovery <hostname>', 'Discovery address')
 .option('-a, --analytics <hostname>', 'Analytics address')
-.option('-t, --time-to-refresh <time>', 'Interval to refresh data (in ms)', parseInt)
+.option('-t, --timeout <time>', 'Request timeout', parseInt)
+.option('-r, --refresh-time <time>', 'Interval to refresh data (in ms)', parseInt)
 .parse(process.argv);
 
 init.initFromEnv();
@@ -54,7 +55,7 @@ async.waterfall([
     setInterval(function(){
       update(callback);
     },
-    2000);
+    global.config.refreshTime);
   }
 ],function(err, res){
   //console.log(JSON.stringify(global.contrailSet.configSet));
