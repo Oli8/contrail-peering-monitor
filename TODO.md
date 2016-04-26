@@ -12,3 +12,4 @@
 * Mesure how much time take the contrailSet update
 * Make some clean in the code
 * Add logs with winston module
+* Add some color
