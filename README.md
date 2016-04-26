@@ -20,6 +20,9 @@
 
 >    -d, --discovery <hostname>    Discovery address
 
+>    -t, --timeout <time>          Request timeout (ms)
+
+>    -r, --refresh-time <time>     Refresh time (ms)
 ## Prerequisites
  * [async](https://www.npmjs.com/package/async)
  * [commander.js](https://www.npmjs.com/package/commander)
