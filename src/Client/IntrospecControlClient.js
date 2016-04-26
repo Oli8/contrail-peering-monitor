@@ -15,6 +15,7 @@ var IntrospecControlClient = function(name){
 // @async
 IntrospecControlClient.prototype.getDataFromPath = function(path, callback){
   var self = this;
+  self.path[path].error = false;
   async.waterfall([
     async.apply(utils.requestXML, self.path[path].url),
     utils.xmlToJSON,

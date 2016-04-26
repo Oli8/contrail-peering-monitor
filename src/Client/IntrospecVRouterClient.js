@@ -15,7 +15,7 @@ var IntrospecVRouterClient = function(name){
 // @async
 IntrospecVRouterClient.prototype.getDataFromPath = function(path, callback){
   var self = this;
-  //console.log(require('util').inspect(this, { depth: 2 }));
+  self.path[path].error = false;
   async.waterfall([
     async.apply(utils.requestXML, self.path[path].url),
     utils.xmlToJSON,

@@ -19,7 +19,7 @@ var initView = function(width, offset){
     label: 'Nodes in error',
     left: offset+'%',
     width: width+'%',
-    height: '90%',
+    height: '100%',
     border: {type: "line", fg: "cyan"},
     columnSpacing: 5, //in chars
     columnWidth: [20, 13] /*in chars*/
