@@ -7,6 +7,7 @@ var xml2js = require('xml2js');
 var requestJSON = function(href, callback){
   unirest.get(href)
   .header('Accept','application/json')
+  .timeout(5000)
   .end(function(response){
     if(response.error){
       callback('Request JSON failed for '+href); // error
@@ -22,6 +23,7 @@ var requestJSON = function(href, callback){
 var requestXML = function(href, callback){
   unirest.get(href)
   .header('Accept','application/xml')
+  .timeout(5000)
   .end(function(response){
     if(response.error){
       callback('Request XML failed for '+href); // error
