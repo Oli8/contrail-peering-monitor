@@ -19,6 +19,7 @@ var ContrailSet = function(discovery, eventEmitter){
 //@async
 ContrailSet.prototype.update = function(callback){
   var self = this;
+  self.error = null;
   async.waterfall([
     function(callback){
       self.getJSON(callback);
