@@ -1,13 +1,13 @@
 {
   "services": [
     {
-      "status": "DOWN",
+      "status": "UP",
       "port": 8082,
       "hostname": "10.35.2.18",
       "name": "contrail-api"
     },
     {
-      "status": "DOWN",
+      "status": "UP",
       "port": 5998,
       "hostname": "10.35.2.18",
       "name": "contrail-discovery"
