@@ -65,6 +65,21 @@ var clientTypeFilter = function(elem){
   return false;
 }
 
+var setColorTag = function(content){
+  for(i in content.data){
+    console.log(i);
+    for(j in content.data[i]){
+      if(content.data[i][j] == 'UP'){
+        content.data[i][j] = '{green-fg}UP{/}';
+      }
+      if(content.data[i][j] == 'DOWN'){
+        content.data[i][j] = '{red-fg}DOWN{/}';
+      }
+    }
+  }
+  return content;
+}
+
 /**
 Return an array with unique element
 */
@@ -107,11 +122,13 @@ var extractField = function(tab, field){
   }
   return res;
 }
+
 exports.portScan = portScan;
 exports.requestJSON = requestJSON;
 exports.requestXML = requestXML;
 exports.xmlToJSON = xmlToJSON;
 exports.fileToJSON = fileToJSON;
+exports.setColorTag = setColorTag;
 exports.uniq = uniq;
 exports.extractField = extractField;
 exports.clientTypeFilter = clientTypeFilter;
