@@ -11,11 +11,12 @@ var ConfigNodeView = function(data, width, offset){
 
 var initView = function(name, width, offset){
   var table = contrib.table({
+    tags: true,
     keys: true,
     fg: 'white',
     selectedFg: 'white',
     selectedBg: 'blue',
-    interactive: true,
+    interactive: false,
     label: name,
     left: offset+'%',
     width: width+'%',
@@ -24,7 +25,7 @@ var initView = function(name, width, offset){
     columnSpacing: 5, //in chars
     columnWidth: [20, 12] /*in chars*/
   });
-  table.rows.style.selected.bg = undefined;
+//  table.rows.style.selected.bg = undefined;
   return table;
 }
 
@@ -46,6 +47,7 @@ ConfigNodeView.prototype.append = function(screen){
 
 ConfigNodeView.prototype.update = function(screen){
   var dataSet = parseData(this.data);
+  dataSet = utils.setColorTag(dataSet);
   this.view.setData(dataSet);
 }
 
@@ -53,6 +55,7 @@ var main = function(screen){
   utils.stdin(function(err, data){
     //console.log(data[0]);
     var result = parseData(data);
+    result = utils.setColorTag(result);
     console.log('################\n# Parse Object #\n################\n'+require('util').inspect(result, { depth: null }));
   });
 }

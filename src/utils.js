@@ -67,7 +67,6 @@ var clientTypeFilter = function(elem){
 
 var setColorTag = function(content){
   for(i in content.data){
-    console.log(i);
     for(j in content.data[i]){
       if(content.data[i][j] == 'UP'){
         content.data[i][j] = '{green-fg}UP{/}';
