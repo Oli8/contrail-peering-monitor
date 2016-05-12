@@ -16,16 +16,15 @@ var initView = function(width, offset){
     fg: 'white',
     selectedFg: 'white',
     selectedBg: 'blue',
-    interactive: true,
+    interactive: false,
     label: 'vRouters',
     left: offset+'%',
     width: width+'%',
     height: '90%',
     border: {type: "line", fg: "cyan"},
     columnSpacing: 5, //in chars
-    columnWidth: [20, 13] /*in chars*/
+    columnWidth: [20, 12] /*in chars*/
   });
-  table.rows.style.selected.bg = undefined;
   return table;
 }
 
@@ -51,13 +50,13 @@ VRouterListView.prototype.append = function(screen){
 
 VRouterListView.prototype.update = function(screen){
   var dataSet = parseData(this.parent, this.data);
+  dataSet = utils.setColorTag(dataSet);
   this.view.setData(dataSet);
 }
 
 var main = function(screen){
   var controlNode = 'd-octclc-0000';
   utils.stdin(function(err, data){
-    //console.log(data[0]);
     var result = parseData(controlNode, data);
     console.log('################\n# Parse Object #\n################\n'+require('util').inspect(result, { depth: null }));
   });

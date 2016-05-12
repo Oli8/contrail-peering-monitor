@@ -11,7 +11,6 @@ var ConfigNodeView = function(data, width, offset){
 
 var initView = function(name, width, offset){
   var table = contrib.table({
-    tags: true,
     keys: true,
     fg: 'white',
     selectedFg: 'white',

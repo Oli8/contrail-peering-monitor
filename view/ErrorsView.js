@@ -15,16 +15,16 @@ var initView = function(width, offset){
     fg: 'white',
     selectedFg: 'white',
     selectedBg: 'blue',
-    interactive: true,
+    interactive: false,
     label: 'Nodes in error',
     left: offset+'%',
     width: width+'%',
     height: '100%',
     border: {type: "line", fg: "cyan"},
     columnSpacing: 5, //in chars
-    columnWidth: [20, 13] /*in chars*/
+    columnWidth: [20, 12] /*in chars*/
   });
-  table.rows.style.selected.bg = undefined;
+  //table.rows.style.selected.bg = undefined;
   return table;
 }
 
@@ -56,6 +56,7 @@ ErrorsView.prototype.isErrors = function(){
 
 ErrorsView.prototype.update = function(screen){
   var dataSet = parsevRouterSet(this.vRouterSet);
+  dataSet = utils.setColorTag(dataSet);
   this.view.setData(dataSet);
 }
 
