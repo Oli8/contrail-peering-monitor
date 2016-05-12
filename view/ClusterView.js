@@ -16,12 +16,12 @@ var initView = function(){
   var box = blessed.box({
     width: '100%',
     height: '100%',
-    border: {
+    /*border: {
       type: 'line'
-    },
+    },*/
     style: {
       fg: 'white',
-      bg: 'magenta',
+      //bg: 'magenta',
       border: {
         fg: '#f0f0f0'
       }

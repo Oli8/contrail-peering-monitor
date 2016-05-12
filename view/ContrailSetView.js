@@ -18,12 +18,12 @@ var initView = function(width, offset){
     width: width+'%',
     height: '100%',
     left: offset+'%',
-    border: {
+    /*border: {
       type: 'line'
-    },
+    },*/
     style: {
       fg: 'white',
-      bg: 'magenta',
+      //bg: 'magenta',
       border: {
         fg: '#f0f0f0'
       }
