@@ -22,7 +22,7 @@ var initView = function(name, width, offset){
     height: '90%',
     border: {type: "line", fg: "cyan"},
     columnSpacing: 5, //in chars
-    columnWidth: [20, 12] /*in chars*/
+    columnWidth: [20, 25] /*in chars*/
   });
 //  table.rows.style.selected.bg = undefined;
   return table;

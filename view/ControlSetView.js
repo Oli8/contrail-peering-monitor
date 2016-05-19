@@ -14,8 +14,8 @@ var ControlSetView = function(data, height, offset){
 var initView = function(height, offset){
   var box = blessed.box({
     top: offset+'%',
-    width: '50%',
-    left: '25%',
+    width: '90%',
+    left: '5%',
     height: height+'%',
     /*border: {
       type: 'line'
