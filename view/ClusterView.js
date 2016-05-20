@@ -42,12 +42,12 @@ ClusterView.prototype.update = function(screen){
   var offset = (100/3);
   var width = 70;
   var errorView = new ErrorsView(this.data.vRouterSet, 99-width, width+1);
-
+  // check disco
   if(this.data.error){
     this.view.content = this.data.error;
     return 0;
   }
-
+  // check nodes in eror
   if(errorView.isErrors()){
     this.children.push(errorView);
   }

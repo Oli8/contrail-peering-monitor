@@ -426,7 +426,7 @@
       },
       "services": [
         {
-          "status": "DOWN",
+          "status": "UP",
           "hostname": "d-ocnclc-0002",
           "name": "contrail-vrouter-agent:0"
         }

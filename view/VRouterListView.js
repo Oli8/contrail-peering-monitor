@@ -36,7 +36,7 @@ var parseData = function(controlNode, data){
   for(i in data.nodes){
     var node = data.nodes[i];
     if(node.xmppPeer){
-      if(node.xmppPeer.active == controlNode){
+      if(node.xmppPeer.active == controlNode && node['services'][0]['status'] == 'UP'){
         result.data.push([node['name'], node['services'][0]['status']]);
       }
     }
