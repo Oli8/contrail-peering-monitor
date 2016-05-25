@@ -1,7 +1,7 @@
 {
   "name": "contrail-peering-monitor",
   "version": "1.0.0",
-  "description": "Command line utilities to monitor contrail cluster",
+  "description": "Lightweight tool to monitor OpenContrail services",
   "main": "contrail-peering-monitor",
   "dependencies": {
     "async": "~1.5.2",
@@ -21,5 +21,5 @@
     "url": "git@git.corp.cloudwatt.com:bruno.fernando/contrail-peering-monitor.git"
   },
   "author": "Bruno FERNANDO",
-  "license": "BSD-2-Clause"
+  "license": "GNU GPLv3"
 }

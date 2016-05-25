@@ -11,7 +11,7 @@ program
 .version('1.0.0')
 .usage('[options]')
 .option('-d, --discovery <hostname>', 'Discovery address')
-.option('-a, --analytics <hostname>', 'Analytics address')
+//.option('-a, --analytics <hostname>', 'Analytics address')
 .option('-t, --timeout <time>', 'Request timeout', parseInt)
 .option('-r, --refresh-time <time>', 'Interval to refresh data (in ms)', parseInt)
 .parse(process.argv);
