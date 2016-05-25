@@ -3,7 +3,7 @@
 ## Install
 > apt-get install nodejs
 
-> git clone https://git.corp.cloudwatt.com/bruno.fernando/contrail-peering-monitor.git
+> git clone https://github.com/cloudwatt/contrail-peering-monitor
 
 > npm install
 
