@@ -1,0 +1,22 @@
+{
+  "location":{
+    "contrail-discovery": "localhost"
+  },
+  "port":{
+    "contrail-discovery": 5998,
+    "contrail-api": 8082,
+    "contrail-svc-monitor": 8088,
+    "contrail-schema": 8087,
+    "contrail-ifmap": 8443,
+    "contrail-control": 8083,
+    "xmpp-server": 5269,
+    "contrail-vrouter-agent:0": 8085,
+    "contrail-analytics-api": 8081,
+    "DiscoveryService": 5998,
+    "ApiServer": 8082,
+    "Service Monitor": 8088,
+    "Schema": 8087,
+    "IfmapServer": 8443,
+    "ControlNode": 8083
+  }
+}

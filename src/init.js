@@ -1,6 +1,7 @@
 var async = require('async');
 var util = require('util');
 var unirest = require('unirest');
+var externalConfig = require('../config/contrail-peering-monitor.json');
 
 global.config = {
   discovery : null,
@@ -9,12 +10,16 @@ global.config = {
   refreshTime : 5500
 };
 
+var initFromExtConfig = function(){
+  global.config.discovery = externalConfig.location["contrail-discovery"];
+}
+
 var initFromEnv = function(){
   global.config.discovery = process.env.CONTRAIL_DISCOVERY_URL ||
   process.env.CONTRAIL_DISCOVERY ||
   process.env.CONTRAIL_DISCO_URL ||
   process.env.CONTRAIL_DISCO ||
-  process.env.DISCOVERY_URL;
+  process.env.DISCOVERY_URL || global.config.discovery;
 }
 
 var initFromOptions = function(program){
@@ -39,6 +44,7 @@ var checkConfig = function(){
   }
 }
 
+exports.initFromExtConfig = initFromExtConfig;
 exports.initFromOptions = initFromOptions;
 exports.initFromEnv = initFromEnv;
 exports.checkConfig = checkConfig;

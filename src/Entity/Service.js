@@ -1,12 +1,12 @@
 var async = require('async');
 var utils = require('../utils')
-var staticConfig = require('../../config/staticConfig');
+var externalConfig = require('../../config/contrail-peering-monitor.json');
 
 //Service
 var Service = function(name, hostname){
 	this.name = name;
 	this.hostname = hostname;
-	this.port = staticConfig.port[name];
+	this.port = externalConfig.port[name];
 	this.status = "DOWN";
 }
 

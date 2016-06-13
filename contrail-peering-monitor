@@ -16,6 +16,7 @@ program
 .option('-r, --refresh-time <time>', 'Interval to refresh data (in ms)', parseInt)
 .parse(process.argv);
 
+init.initFromExtConfig();
 init.initFromEnv();
 init.initFromOptions(program);
 init.checkConfig();
