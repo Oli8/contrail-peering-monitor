@@ -8,7 +8,7 @@
 > npm install
 
 ## Version
- v.1.0.0
+ v.1.0.1
 
 ## Usage
 > ./contrail-peering-monitor --help
@@ -21,7 +21,7 @@
 
 >    -V, --version                 output the version number
 
->    -d, --discovery <hostname>    Discovery address
+>    -d, --discovery <hostname>    Discovery address (localhost by default)
 
 >    -t, --timeout <time>          Request timeout (ms)
 

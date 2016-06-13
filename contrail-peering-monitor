@@ -8,7 +8,7 @@ var ContrailSet = require('./src/Set/ContrailSet');
 var View = require('./view/view.js');
 
 program
-.version('1.0.0')
+.version('1.0.1')
 .usage('[options]')
 .option('-d, --discovery <hostname>', 'Discovery address')
 //.option('-a, --analytics <hostname>', 'Analytics address')
