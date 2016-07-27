@@ -1,10 +1,28 @@
 var async = require('async');
 var utils = require('../utils');
 var ControlNode = require('../Node/ControlNode');
+/**
+ * Set Module
+ *
+ * @module Set
+ */
 
-// ControlSet
+/**
+ * ControlSet description ...
+ *
+ * @class ControlSet
+ * @constructor
+ */
 var ControlSet = function(){
+	/**
+	* @property nodes
+	* @type Object
+	*/
 	this.nodes = [];
+	/**
+	* @property types
+	* @type String
+	*/
 	this.types = 'ControlSet';
 }
 
@@ -20,6 +38,13 @@ var parseDiscoveryObject = function(objJSON){
 	return controlList;
 }
 
+/**
+* Check if a node's name already exists
+*
+* @method exist
+* @param {String} name name
+* @return {Boolean} Return wether the name exists
+*/
 ControlSet.prototype.exist = function(name){
 	for(i in this.nodes){
 		if(this.nodes[i].name==name){
@@ -29,6 +54,12 @@ ControlSet.prototype.exist = function(name){
 	return false;
 }
 
+/**
+* Delete Outdated node 
+*
+* @method exist
+* @param {String} nodeList nodeList
+*/
 ControlSet.prototype.deleteOutdatedNode = function(nodeList){
 	for(i in this.nodes){
 		var name = this.nodes[i].name;
@@ -39,6 +70,14 @@ ControlSet.prototype.deleteOutdatedNode = function(nodeList){
 	}
 }
 
+/**
+* update description
+*
+* @method update
+* @param {Object} discoClientJSON an object
+* @param {Object} discoServiceJSON an object
+* @param {function} callback callback function
+*/
 ControlSet.prototype.update = function(discoClientJSON, discoServiceJSON, callback){
 	var self = this;
 	var controlList = parseDiscoveryObject(discoClientJSON);
@@ -58,6 +97,14 @@ ControlSet.prototype.update = function(discoClientJSON, discoServiceJSON, callba
 	callback(null);
 }
 
+/**
+* updateFromIntrospec description
+*
+* @async
+* @method updateFromIntrospec
+* @param {Array} configList config list
+* @param {function} callback callback function
+*/
 ControlSet.prototype.updateFromIntrospec = function(configList, callback){
   var self = this;
   for(i in self.nodes){
@@ -66,7 +113,13 @@ ControlSet.prototype.updateFromIntrospec = function(configList, callback){
 	callback(null);
 }
 
-//@async
+/**
+* getIntrospec description
+*
+* @async
+* @method getIntrospec
+* @param {function} callback callback function
+*/
 ControlSet.prototype.getIntrospec = function(callback){
 	var self = this;
   async.forEachOf(self.nodes, function(node, key, callback){
@@ -76,7 +129,13 @@ ControlSet.prototype.getIntrospec = function(callback){
   });
 }
 
-//@async
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {Function} callback callback function
+*/
 ControlSet.prototype.checkServices = function(callback){
 	var self = this;
   async.forEachOf(self.nodes, function(node, key, callback){

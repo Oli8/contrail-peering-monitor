@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/Set/ControlSet.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/ConfigNode.html">ConfigNode</a></li>
+                                <li><a href="../classes/ConfigSet.html">ConfigSet</a></li>
+                                <li><a href="../classes/ContrailNode.html">ContrailNode</a></li>
+                                <li><a href="../classes/ContrailSet.html">ContrailSet</a></li>
+                                <li><a href="../classes/ControlNode.html">ControlNode</a></li>
+                                <li><a href="../classes/ControlSet.html">ControlSet</a></li>
+                                <li><a href="../classes/DiscoveryClient.html">DiscoveryClient</a></li>
+                                <li><a href="../classes/IntrospecControlClient.html">IntrospecControlClient</a></li>
+                                <li><a href="../classes/IntrospecVRouterClient.html">IntrospecVRouterClient</a></li>
+                                <li><a href="../classes/VRouterNode.html">VRouterNode</a></li>
+                                <li><a href="../classes/VRouterSet.html">VRouterSet</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/client.html">client</a></li>
+                                <li><a href="../modules/entity.html">entity</a></li>
+                                <li><a href="../modules/node.html">node</a></li>
+                                <li><a href="../modules/Set.html">Set</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/Set/ControlSet.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+var async = require(&#x27;async&#x27;);
+var utils = require(&#x27;../utils&#x27;);
+var ControlNode = require(&#x27;../Node/ControlNode&#x27;);
+/**
+ * Set Module
+ *
+ * @module Set
+ */
+
+/**
+ * ControlSet description ...
+ *
+ * @class ControlSet
+ * @constructor
+ */
+var ControlSet = function(){
+	/**
+	* @property nodes
+	* @type Object
+	*/
+	this.nodes = [];
+	/**
+	* @property types
+	* @type String
+	*/
+	this.types = &#x27;ControlSet&#x27;;
+}
+
+var parseDiscoveryObject = function(objJSON){
+	var filterType = [&#x27;ControlNode&#x27;, &#x27;contrail-control&#x27;];
+
+	var nodesJSON = objJSON.services;
+	var controlList = nodesJSON.filter(utils.clientTypeFilter, {field: &#x27;client_type&#x27;, filter: filterType});
+	for(i in controlList){
+		controlList[i] = controlList[i][&#x27;client_id&#x27;].split(&#x27;:&#x27;)[0];
+	}
+	controlList = utils.uniq(controlList);
+	return controlList;
+}
+
+/**
+* Check if a node&#x27;s name already exists
+*
+* @method exist
+* @param {String} name name
+* @return {Boolean} Return wether the name exists
+*/
+ControlSet.prototype.exist = function(name){
+	for(i in this.nodes){
+		if(this.nodes[i].name==name){
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+* Delete Outdated node 
+*
+* @method exist
+* @param {String} nodeList nodeList
+*/
+ControlSet.prototype.deleteOutdatedNode = function(nodeList){
+	for(i in this.nodes){
+		var name = this.nodes[i].name;
+
+		if(nodeList.indexOf(name)==-1){
+			delete this.nodes[i];
+		}
+	}
+}
+
+/**
+* update description
+*
+* @method update
+* @param {Object} discoClientJSON an object
+* @param {Object} discoServiceJSON an object
+* @param {function} callback callback function
+*/
+ControlSet.prototype.update = function(discoClientJSON, discoServiceJSON, callback){
+	var self = this;
+	var controlList = parseDiscoveryObject(discoClientJSON);
+
+	for(i in controlList){
+		var name = controlList[i];
+		if(!self.exist(name)){
+			self.nodes.push(new ControlNode(name));
+		}
+	}
+
+	self.deleteOutdatedNode(controlList);
+
+	for(i in self.nodes){
+		self.nodes[i].update(discoClientJSON, discoServiceJSON);
+	}
+	callback(null);
+}
+
+/**
+* updateFromIntrospec description
+*
+* @async
+* @method updateFromIntrospec
+* @param {Array} configList config list
+* @param {function} callback callback function
+*/
+ControlSet.prototype.updateFromIntrospec = function(configList, callback){
+  var self = this;
+  for(i in self.nodes){
+		self.nodes[i].updateFromIntrospec(configList);
+	}
+	callback(null);
+}
+
+/**
+* getIntrospec description
+*
+* @async
+* @method getIntrospec
+* @param {function} callback callback function
+*/
+ControlSet.prototype.getIntrospec = function(callback){
+	var self = this;
+  async.forEachOf(self.nodes, function(node, key, callback){
+    node.getIntrospec(callback);
+  }, function(err){
+    callback(null);
+  });
+}
+
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {Function} callback callback function
+*/
+ControlSet.prototype.checkServices = function(callback){
+	var self = this;
+  async.forEachOf(self.nodes, function(node, key, callback){
+    node.checkServices(callback);
+  }, function(err){
+    callback(null);
+  });
+}
+
+var main = function(){
+	utils.stdin(function(err, data){
+		var result = parseDiscoveryObject(data[0]);
+		console.log(&#x27;##########################\n# Parse Discovery Object #\n##########################\n&#x27;+result);
+	});
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = ControlSet;
+
+// ControlSet.prototype.update = function(callback){
+// 	var controlSet = this;
+// 	async.waterfall([
+//     function(callback){
+//       callback(null, controlSet.dataSource);
+//     },
+//     function(url, callback){
+//       configUrl = &#x27;http://&#x27; + url + &#x27;:8081/analytics/uves/control-nodes&#x27;;
+//       callback(null, configUrl);
+//     },
+//     utils.requestJSON,
+//     function(objJSON, callback){
+//       for(i in objJSON){
+//         var name = objJSON[i].name;
+//         if(!(name in contrailSet.nodes)){
+//           contrailSet.nodes[name] = new ControlNode(name, objJSON[i].href);
+//           controlSet.nodes.push(contrailSet.nodes[name]);
+//         }
+//       }
+//       callback(null, objJSON);
+//     },
+//     this.deleteOutdatedNode,
+//     function(callback){
+//       async.forEachOf(controlSet.nodes, function(node, index, callback){
+// 				node.update(callback);
+// 			}, function(err, res){
+//         callback(null);
+//       });
+//     }
+//   ], function(err, res){
+//     callback(null);
+//   });
+// };
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src/Set/ContrailSet.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/ConfigNode.html">ConfigNode</a></li>
+                                <li><a href="../classes/ConfigSet.html">ConfigSet</a></li>
+                                <li><a href="../classes/ContrailNode.html">ContrailNode</a></li>
+                                <li><a href="../classes/ContrailSet.html">ContrailSet</a></li>
+                                <li><a href="../classes/ControlNode.html">ControlNode</a></li>
+                                <li><a href="../classes/ControlSet.html">ControlSet</a></li>
+                                <li><a href="../classes/DiscoveryClient.html">DiscoveryClient</a></li>
+                                <li><a href="../classes/IntrospecControlClient.html">IntrospecControlClient</a></li>
+                                <li><a href="../classes/IntrospecVRouterClient.html">IntrospecVRouterClient</a></li>
+                                <li><a href="../classes/VRouterNode.html">VRouterNode</a></li>
+                                <li><a href="../classes/VRouterSet.html">VRouterSet</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/client.html">client</a></li>
+                                <li><a href="../modules/entity.html">entity</a></li>
+                                <li><a href="../modules/node.html">node</a></li>
+                                <li><a href="../modules/Set.html">Set</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: src/Set/ContrailSet.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+var async = require(&#x27;async&#x27;);
+var ConfigSet = require(&#x27;./ConfigSet&#x27;);
+var ControlSet = require(&#x27;./ControlSet&#x27;);
+var VRouterSet = require(&#x27;./VRouterSet&#x27;);
+//var ContrailNode = require(&#x27;../Node/ContrailNode&#x27;);
+var DiscoveryClient = require(&#x27;../Client/DiscoveryClient&#x27;);
+var util = require(&#x27;util&#x27;);
+/**
+ * Set Module
+ *
+ * @module Set
+ */
+
+/**
+ * ContrailSet description ...
+ *
+ * @class ContrailSet
+ * @constructor
+ * @param {String} discovery Name of the Discovery client instance
+ * @param {String} eventEmitter eventEmitter
+ */
+var ContrailSet = function(discovery, eventEmitter){
+  /**
+  * @property eventEmitter
+  * @type String
+  */
+  this.eventEmitter = eventEmitter;
+  /**
+  * @property discoveryClient
+  * @type Object
+  */
+  this.discoveryClient = new DiscoveryClient(discovery);
+  /**
+  * @property configSet
+  * @type Object
+  */
+  this.configSet = new ConfigSet();
+  /**
+  * @property ControlSet
+  * @type Object
+  */
+  this.controlSet = new ControlSet();
+  /**
+  * @property VRouterSet
+  * @type Object
+  */
+  this.vRouterSet = new VRouterSet();
+  /**
+  * @property nodes
+  * @type Object
+  */
+  this.nodes = {};
+  /**
+  * @property error
+  * @type 
+  */
+  this.error = null;
+};
+
+/**
+* update description
+*
+* @method update
+* @async
+* @param {function} callback callback function
+*/
+ContrailSet.prototype.update = function(callback){
+  var self = this;
+  self.error = null;
+  async.waterfall([
+    function(callback){
+      self.getJSON(callback);
+    },
+    function(callback){
+      self.updateSet(callback);
+    },
+    function(callback){
+      self.checkServices(callback);
+    },
+    function(callback){
+      self.getIntrospec(callback);
+    },
+    function(callback){
+      self.updateFromIntrospec(callback);
+    }
+  ], function(err){
+    if(err){
+      self.error = &#x27;Discovery not responding&#x27;;
+    }
+    //console.log(JSON.stringify(self.vRouterSet.nodes[0]));
+    //process.exit(0);
+    //self.eventEmitter.emit(&#x27;updated&#x27;, self);
+    callback(null);
+  });
+}
+
+/**
+* getJSON description
+*
+* @async
+* @method getJSON
+* @param {function} callback callback function
+*/
+ContrailSet.prototype.getJSON = function(callback){
+  var self = this;
+  async.parallel([
+    function(callback){
+      self.discoveryClient.get(callback);
+    }
+    //self.analyticsClient.get
+  ], function(err){
+    //console.log(&quot;&quot;+self.discoveryClient);
+    callback(err);
+  });
+}
+
+/**
+* updateSet description
+*
+* @async
+* @method updateSet
+* @param {function} callback callback function
+*/
+ContrailSet.prototype.updateSet = function(callback){
+  var self = this;
+  async.parallel([
+    function(callback){
+      self.configSet.update(self.discoveryClient.path[&#x27;/clients.json&#x27;].data, self.discoveryClient.path[&#x27;/services.json&#x27;].data, callback);
+    },
+    function(callback){
+      self.controlSet.update(self.discoveryClient.path[&#x27;/clients.json&#x27;].data, self.discoveryClient.path[&#x27;/services.json&#x27;].data, callback);
+    },
+    function(callback){
+      self.vRouterSet.update(self.discoveryClient.path[&#x27;/clients.json&#x27;].data, self.discoveryClient.path[&#x27;/services.json&#x27;].data, callback);
+    }
+  ], function(err){
+    callback(null);
+  });
+}
+
+/**
+* updateFromIntrospec description
+*
+* @async
+* @method updateFromIntrospec
+* @param {function} callback callback function
+*/
+ContrailSet.prototype.updateFromIntrospec = function(callback){
+  var self = this;
+  var configList = [];
+  var controlList = [];
+  for(i in self.configSet.nodes){
+    configList.push({name: self.configSet.nodes[i].name, ipAddress: self.configSet.nodes[i].ipAddress[0]});
+  }
+  for(i in self.controlSet.nodes){
+    controlList.push({name: self.controlSet.nodes[i].name, ipAddress: self.controlSet.nodes[i].ipAddress[0]});
+  }
+  async.waterfall([
+    function(callback){
+      self.controlSet.updateFromIntrospec(configList, callback);
+    },
+    function(callback){
+      self.vRouterSet.updateFromIntrospec(controlList, callback);
+    }
+  ], function(err){
+    callback(null);
+  });
+}
+
+/**
+* getIntrospec description
+*
+* @async
+* @method getIntrospec
+* @param {function} callback callback function
+*/
+ContrailSet.prototype.getIntrospec = function(callback){
+  var self = this;
+  async.parallel([
+    function(callback){
+      self.controlSet.getIntrospec(callback);
+    },
+    function(callback){
+      self.vRouterSet.getIntrospec(callback);
+    }
+  ], function(err){
+    callback(null);
+  });
+};
+
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {function} callback callback function
+*/
+ContrailSet.prototype.checkServices = function(callback){
+  var self = this;
+  async.parallel([
+    function(callback){
+      self.configSet.checkServices(callback);
+    },
+    function(callback){
+      self.controlSet.checkServices(callback);
+    },
+    function(callback){
+      self.vRouterSet.checkServices(callback);
+    }
+  ], function(err){
+    callback(null);
+  });
+}
+
+/**
+* toString description
+*
+* @method toString
+* @return {String} ContrailSet string description
+*/
+ContrailSet.prototype.toString = function(){
+  return &#x27;###############&quot;\n# ContrailSet #\n###############\n&#x27;+util.inspect(contrailSet, false, null, true);
+}
+/*
+var main = function(){
+  var contrailSet = new ContrailSet(&#x27;localhost&#x27;);
+
+  async.waterfall([
+    function(callback){
+      var self = contrailSet;
+      async.parallel([
+        function(callback){
+          console.log(util.inspect(this, null, 2));
+          callback(null);
+        },
+        function(callback){
+          self.discoveryClient.get(callback);
+        }
+      ], function(err){
+        callback(null);
+      });
+    }
+  ], function(err){
+    console.log(&quot;&quot;+contrailSet.discoveryClient);
+  });
+}
+
+main();
+*/
+module.exports = ContrailSet;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

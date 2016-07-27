@@ -5,18 +5,65 @@ var VRouterSet = require('./VRouterSet');
 //var ContrailNode = require('../Node/ContrailNode');
 var DiscoveryClient = require('../Client/DiscoveryClient');
 var util = require('util');
+/**
+ * Set Module
+ *
+ * @module Set
+ */
 
+/**
+ * ContrailSet description ...
+ *
+ * @class ContrailSet
+ * @constructor
+ * @param {String} discovery Name of the Discovery client instance
+ * @param {String} eventEmitter eventEmitter
+ */
 var ContrailSet = function(discovery, eventEmitter){
+  /**
+  * @property eventEmitter
+  * @type String
+  */
   this.eventEmitter = eventEmitter;
+  /**
+  * @property discoveryClient
+  * @type Object
+  */
   this.discoveryClient = new DiscoveryClient(discovery);
+  /**
+  * @property configSet
+  * @type Object
+  */
   this.configSet = new ConfigSet();
+  /**
+  * @property ControlSet
+  * @type Object
+  */
   this.controlSet = new ControlSet();
+  /**
+  * @property VRouterSet
+  * @type Object
+  */
   this.vRouterSet = new VRouterSet();
+  /**
+  * @property nodes
+  * @type Object
+  */
   this.nodes = {};
+  /**
+  * @property error
+  * @type 
+  */
   this.error = null;
 };
 
-//@async
+/**
+* update description
+*
+* @method update
+* @async
+* @param {function} callback callback function
+*/
 ContrailSet.prototype.update = function(callback){
   var self = this;
   self.error = null;
@@ -47,7 +94,13 @@ ContrailSet.prototype.update = function(callback){
   });
 }
 
-//@async
+/**
+* getJSON description
+*
+* @async
+* @method getJSON
+* @param {function} callback callback function
+*/
 ContrailSet.prototype.getJSON = function(callback){
   var self = this;
   async.parallel([
@@ -61,7 +114,13 @@ ContrailSet.prototype.getJSON = function(callback){
   });
 }
 
-//@async
+/**
+* updateSet description
+*
+* @async
+* @method updateSet
+* @param {function} callback callback function
+*/
 ContrailSet.prototype.updateSet = function(callback){
   var self = this;
   async.parallel([
@@ -79,6 +138,13 @@ ContrailSet.prototype.updateSet = function(callback){
   });
 }
 
+/**
+* updateFromIntrospec description
+*
+* @async
+* @method updateFromIntrospec
+* @param {function} callback callback function
+*/
 ContrailSet.prototype.updateFromIntrospec = function(callback){
   var self = this;
   var configList = [];
@@ -101,7 +167,13 @@ ContrailSet.prototype.updateFromIntrospec = function(callback){
   });
 }
 
-//@async
+/**
+* getIntrospec description
+*
+* @async
+* @method getIntrospec
+* @param {function} callback callback function
+*/
 ContrailSet.prototype.getIntrospec = function(callback){
   var self = this;
   async.parallel([
@@ -116,7 +188,13 @@ ContrailSet.prototype.getIntrospec = function(callback){
   });
 };
 
-//@async
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {function} callback callback function
+*/
 ContrailSet.prototype.checkServices = function(callback){
   var self = this;
   async.parallel([
@@ -134,6 +212,12 @@ ContrailSet.prototype.checkServices = function(callback){
   });
 }
 
+/**
+* toString description
+*
+* @method toString
+* @return {String} ContrailSet string description
+*/
 ContrailSet.prototype.toString = function(){
   return '###############"\n# ContrailSet #\n###############\n'+util.inspect(contrailSet, false, null, true);
 }

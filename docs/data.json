@@ -1,0 +1,1652 @@
+{
+    "project": {},
+    "files": {
+        "src/Client/DiscoveryClient.js": {
+            "name": "src/Client/DiscoveryClient.js",
+            "modules": {
+                "client": 1
+            },
+            "classes": {
+                "DiscoveryClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Client/IntrospecControlClient.js": {
+            "name": "src/Client/IntrospecControlClient.js",
+            "modules": {},
+            "classes": {
+                "IntrospecControlClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Client/IntrospecVRouterClient.js": {
+            "name": "src/Client/IntrospecVRouterClient.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Entity/Service.js": {
+            "name": "src/Entity/Service.js",
+            "modules": {
+                "entity": 1
+            },
+            "classes": {
+                "IntrospecVRouterClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Node/ConfigNode.js": {
+            "name": "src/Node/ConfigNode.js",
+            "modules": {
+                "node": 1
+            },
+            "classes": {
+                "ConfigNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Node/ContrailNode.js": {
+            "name": "src/Node/ContrailNode.js",
+            "modules": {},
+            "classes": {
+                "ContrailNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Node/ControlNode.js": {
+            "name": "src/Node/ControlNode.js",
+            "modules": {},
+            "classes": {
+                "ControlNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Node/VRouterNode.js": {
+            "name": "src/Node/VRouterNode.js",
+            "modules": {},
+            "classes": {
+                "VRouterNode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Set/ConfigSet.js": {
+            "name": "src/Set/ConfigSet.js",
+            "modules": {
+                "Set": 1
+            },
+            "classes": {
+                "ConfigSet": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Set/ContrailSet.js": {
+            "name": "src/Set/ContrailSet.js",
+            "modules": {},
+            "classes": {
+                "ContrailSet": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Set/ControlSet.js": {
+            "name": "src/Set/ControlSet.js",
+            "modules": {},
+            "classes": {
+                "ControlSet": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Set/VRouterSet.js": {
+            "name": "src/Set/VRouterSet.js",
+            "modules": {},
+            "classes": {
+                "VRouterSet": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/utils.js": {
+            "name": "src/utils.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "client": {
+            "name": "client",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "DiscoveryClient": 1,
+                "IntrospecControlClient": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 10,
+            "description": "Client Module"
+        },
+        "entity": {
+            "name": "entity",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "IntrospecVRouterClient": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Entity/Service.js",
+            "line": 10,
+            "description": "Entity Module"
+        },
+        "node": {
+            "name": "node",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ConfigNode": 1,
+                "ContrailNode": 1,
+                "ControlNode": 1,
+                "VRouterNode": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Node/VRouterNode.js",
+            "line": 11,
+            "description": "Node Module"
+        },
+        "Set": {
+            "name": "Set",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ConfigSet": 1,
+                "ContrailSet": 1,
+                "ControlSet": 1,
+                "VRouterSet": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Set/VRouterSet.js",
+            "line": 11,
+            "description": "Set Module"
+        }
+    },
+    "classes": {
+        "DiscoveryClient": {
+            "name": "DiscoveryClient",
+            "shortname": "DiscoveryClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "client",
+            "namespace": "",
+            "file": "src/Client/DiscoveryClient.js",
+            "line": 10,
+            "description": "DiscoveryClient description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ]
+        },
+        "IntrospecControlClient": {
+            "name": "IntrospecControlClient",
+            "shortname": "IntrospecControlClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "client",
+            "namespace": "",
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 10,
+            "description": "IntrospecControlClient description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ]
+        },
+        "IntrospecVRouterClient": {
+            "name": "IntrospecVRouterClient",
+            "shortname": "IntrospecVRouterClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "entity",
+            "namespace": "",
+            "file": "src/Entity/Service.js",
+            "line": 10,
+            "description": "Service description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ]
+        },
+        "ConfigNode": {
+            "name": "ConfigNode",
+            "shortname": "ConfigNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "node",
+            "namespace": "",
+            "file": "src/Node/ConfigNode.js",
+            "line": 10,
+            "description": "ConfigNode description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ]
+        },
+        "ContrailNode": {
+            "name": "ContrailNode",
+            "shortname": "ContrailNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "node",
+            "namespace": "",
+            "file": "src/Node/ContrailNode.js",
+            "line": 9,
+            "description": "ContrailNode description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                },
+                {
+                    "name": "datasource",
+                    "description": "datasource",
+                    "type": "String"
+                },
+                {
+                    "name": "type",
+                    "description": "type",
+                    "type": "String"
+                }
+            ]
+        },
+        "ControlNode": {
+            "name": "ControlNode",
+            "shortname": "ControlNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "node",
+            "namespace": "",
+            "file": "src/Node/ControlNode.js",
+            "line": 11,
+            "description": "ControlNode description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ]
+        },
+        "VRouterNode": {
+            "name": "VRouterNode",
+            "shortname": "VRouterNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "node",
+            "namespace": "",
+            "file": "src/Node/VRouterNode.js",
+            "line": 11,
+            "description": "VRouterNode description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                },
+                {
+                    "name": "datasource",
+                    "description": "datasource",
+                    "type": "String"
+                }
+            ]
+        },
+        "ConfigSet": {
+            "name": "ConfigSet",
+            "shortname": "ConfigSet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Set",
+            "namespace": "",
+            "file": "src/Set/ConfigSet.js",
+            "line": 10,
+            "description": "ConfigSet description ...",
+            "is_constructor": 1
+        },
+        "ContrailSet": {
+            "name": "ContrailSet",
+            "shortname": "ContrailSet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Set",
+            "namespace": "",
+            "file": "src/Set/ContrailSet.js",
+            "line": 14,
+            "description": "ContrailSet description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "discovery",
+                    "description": "Name of the Discovery client instance",
+                    "type": "String"
+                },
+                {
+                    "name": "eventEmitter",
+                    "description": "eventEmitter",
+                    "type": "String"
+                }
+            ]
+        },
+        "ControlSet": {
+            "name": "ControlSet",
+            "shortname": "ControlSet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Set",
+            "namespace": "",
+            "file": "src/Set/ControlSet.js",
+            "line": 10,
+            "description": "ControlSet description ...",
+            "is_constructor": 1
+        },
+        "VRouterSet": {
+            "name": "VRouterSet",
+            "shortname": "VRouterSet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Set",
+            "namespace": "",
+            "file": "src/Set/VRouterSet.js",
+            "line": 11,
+            "description": "VRouterSet description ...",
+            "is_constructor": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/Client/DiscoveryClient.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "DiscoveryClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/DiscoveryClient.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "path",
+            "type": "Object",
+            "class": "DiscoveryClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/DiscoveryClient.js",
+            "line": 38,
+            "description": "getDataFromPath description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getDataFromPath",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "path of something",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "DiscoveryClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/DiscoveryClient.js",
+            "line": 60,
+            "description": "DiscoveryClient get description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "DiscoveryClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/DiscoveryClient.js",
+            "line": 77,
+            "description": "DiscoveryClient toString description",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "DiscoveryClient string description",
+                "type": "String"
+            },
+            "class": "DiscoveryClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "IntrospecControlClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "path",
+            "type": "Object",
+            "class": "IntrospecControlClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 35,
+            "description": "getDataFromPath description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getDataFromPath",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "path of something",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "IntrospecControlClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 61,
+            "description": "IntrospecControlClient get description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "IntrospecControlClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecControlClient.js",
+            "line": 78,
+            "description": "IntrospecControlClient toString description",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "IntrospecControlClient string description",
+                "type": "String"
+            },
+            "class": "IntrospecControlClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecVRouterClient.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "IntrospecVRouterClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecVRouterClient.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "path",
+            "type": "Object",
+            "class": "IntrospecVRouterClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecVRouterClient.js",
+            "line": 35,
+            "description": "getDataFromPath description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getDataFromPath",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "path of something",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "IntrospecVRouterClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecVRouterClient.js",
+            "line": 61,
+            "description": "IntrospecVRouterClient get description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "IntrospecVRouterClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Client/IntrospecVRouterClient.js",
+            "line": 78,
+            "description": "IntrospecVRouterClient toString description",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "IntrospecVRouterClient string description",
+                "type": "String"
+            },
+            "class": "IntrospecVRouterClient",
+            "module": "client"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "hostname",
+            "type": "String",
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "port",
+            "type": "String",
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 34,
+            "itemtype": "property",
+            "name": "status",
+            "type": "String",
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 41,
+            "description": "Service get description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 66,
+            "description": "Service get description",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "status",
+                    "description": "new status' name",
+                    "type": "String"
+                }
+            ],
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Entity/Service.js",
+            "line": 76,
+            "description": "Service toString description",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "Service string description",
+                "type": "String"
+            },
+            "class": "IntrospecVRouterClient",
+            "module": "entity"
+        },
+        {
+            "file": "src/Node/ConfigNode.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "ConfigNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ConfigNode.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "class": "ConfigNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ConfigNode.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "ipAddress",
+            "type": "Array",
+            "class": "ConfigNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ConfigNode.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "services",
+            "type": "Array",
+            "class": "ConfigNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ConfigNode.js",
+            "line": 97,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "discoClientJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "discoServiceJSON",
+                    "description": "an object",
+                    "type": "Object"
+                }
+            ],
+            "class": "ConfigNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ConfigNode.js",
+            "line": 113,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ConfigNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ContrailNode.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "ContrailNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ContrailNode.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "datasource",
+            "type": "String",
+            "class": "ContrailNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ContrailNode.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "class": "ContrailNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ContrailNode.js",
+            "line": 36,
+            "description": "ContrailNode toString description",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "ContrailNode string description",
+                "type": "String"
+            },
+            "class": "ContrailNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "introspecControlClient",
+            "type": "Object",
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 34,
+            "itemtype": "property",
+            "name": "ipAddress",
+            "type": "Array",
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 39,
+            "itemtype": "property",
+            "name": "services",
+            "type": "Array",
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 44,
+            "itemtype": "property",
+            "name": "ifmapPeer",
+            "type": "Pbject",
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 157,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "discoClientJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "discoServiceJSON",
+                    "description": "an object",
+                    "type": "Object"
+                }
+            ],
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 173,
+            "description": "updateFromIntrospec description",
+            "itemtype": "method",
+            "name": "updateFromIntrospec",
+            "params": [
+                {
+                    "name": "configList",
+                    "description": "an object",
+                    "type": "Object"
+                }
+            ],
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 187,
+            "description": "getIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getIntrospec",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/ControlNode.js",
+            "line": 199,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ControlNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 20,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 25,
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 30,
+            "itemtype": "property",
+            "name": "introspecControlClient",
+            "type": "Object",
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 35,
+            "itemtype": "property",
+            "name": "ipAddress",
+            "type": "Array",
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 40,
+            "itemtype": "property",
+            "name": "services",
+            "type": "Array",
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "ifmapPeer",
+            "type": "Pbject",
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 122,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "discoClientJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "discoServiceJSON",
+                    "description": "an object",
+                    "type": "Object"
+                }
+            ],
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 138,
+            "description": "updateFromIntrospec description",
+            "itemtype": "method",
+            "name": "updateFromIntrospec",
+            "params": [
+                {
+                    "name": "controlList",
+                    "description": "an object",
+                    "type": "Object"
+                }
+            ],
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 152,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Node/VRouterNode.js",
+            "line": 168,
+            "description": "getIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getIntrospec",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "VRouterNode",
+            "module": "node"
+        },
+        {
+            "file": "src/Set/ConfigSet.js",
+            "line": 17,
+            "itemtype": "property",
+            "name": "nodes",
+            "type": "Array",
+            "class": "ConfigSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ConfigSet.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "class": "ConfigSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ConfigSet.js",
+            "line": 42,
+            "description": "Check if a node's name already exists",
+            "itemtype": "method",
+            "name": "exist",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Return wether the name exists",
+                "type": "Boolean"
+            },
+            "class": "ConfigSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ConfigSet.js",
+            "line": 58,
+            "description": "Delete Outdated node",
+            "itemtype": "method",
+            "name": "exist",
+            "params": [
+                {
+                    "name": "nodeList",
+                    "description": "nodeList",
+                    "type": "String"
+                }
+            ],
+            "class": "ConfigSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ConfigSet.js",
+            "line": 75,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "discoClientJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "discoServiceJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ConfigSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ConfigSet.js",
+            "line": 102,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ConfigSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "eventEmitter",
+            "type": "String",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 28,
+            "itemtype": "property",
+            "name": "discoveryClient",
+            "type": "Object",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "configSet",
+            "type": "Object",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 38,
+            "itemtype": "property",
+            "name": "ControlSet",
+            "type": "Object",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 43,
+            "itemtype": "property",
+            "name": "VRouterSet",
+            "type": "Object",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 48,
+            "itemtype": "property",
+            "name": "nodes",
+            "type": "Object",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 53,
+            "itemtype": "property",
+            "name": "error",
+            "type": "",
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 60,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 97,
+            "description": "getJSON description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getJSON",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 117,
+            "description": "updateSet description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "updateSet",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 141,
+            "description": "updateFromIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "updateFromIntrospec",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 170,
+            "description": "getIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getIntrospec",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 191,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ContrailSet.js",
+            "line": 215,
+            "description": "toString description",
+            "itemtype": "method",
+            "name": "toString",
+            "return": {
+                "description": "ContrailSet string description",
+                "type": "String"
+            },
+            "class": "ContrailSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 17,
+            "itemtype": "property",
+            "name": "nodes",
+            "type": "Object",
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "types",
+            "type": "String",
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 41,
+            "description": "Check if a node's name already exists",
+            "itemtype": "method",
+            "name": "exist",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Return wether the name exists",
+                "type": "Boolean"
+            },
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 57,
+            "description": "Delete Outdated node",
+            "itemtype": "method",
+            "name": "exist",
+            "params": [
+                {
+                    "name": "nodeList",
+                    "description": "nodeList",
+                    "type": "String"
+                }
+            ],
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 73,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "discoClientJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "discoServiceJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 100,
+            "description": "updateFromIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "updateFromIntrospec",
+            "params": [
+                {
+                    "name": "configList",
+                    "description": "config list",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 116,
+            "description": "getIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getIntrospec",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/ControlSet.js",
+            "line": 132,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "ControlSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "nodes",
+            "type": "Object",
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "types",
+            "type": "String",
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 42,
+            "description": "Check if a node's name already exists",
+            "itemtype": "method",
+            "name": "exist",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Return wether the name exists",
+                "type": "Boolean"
+            },
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 58,
+            "description": "Delete Outdated node",
+            "itemtype": "method",
+            "name": "exist",
+            "params": [
+                {
+                    "name": "nodeList",
+                    "description": "nodeList",
+                    "type": "String"
+                }
+            ],
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 75,
+            "description": "update description",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "discoClientJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "discoServiceJSON",
+                    "description": "an object",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 103,
+            "description": "updateFromIntrospec description",
+            "itemtype": "method",
+            "name": "updateFromIntrospec",
+            "params": [
+                {
+                    "name": "controlList",
+                    "description": "config list",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 118,
+            "description": "getIntrospec description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "getIntrospec",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/Set/VRouterSet.js",
+            "line": 134,
+            "description": "checkServices description",
+            "async": 1,
+            "itemtype": "method",
+            "name": "checkServices",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "callback function",
+                    "type": "Function"
+                }
+            ],
+            "class": "VRouterSet",
+            "module": "Set"
+        },
+        {
+            "file": "src/utils.js",
+            "line": 82,
+            "description": "Return an array with unique element",
+            "class": "",
+            "module": "Set"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nReturn an array with unique element",
+            "line": " src/utils.js:82"
+        }
+    ]
+}
