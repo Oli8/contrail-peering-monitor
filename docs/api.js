@@ -10,6 +10,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "DiscoveryClient",
         "IntrospecControlClient",
         "IntrospecVRouterClient",
+        "Service",
         "VRouterNode",
         "VRouterSet"
     ],

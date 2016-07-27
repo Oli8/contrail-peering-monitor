@@ -56,9 +56,9 @@ ConfigSet.prototype.exist = function(name){
 }
 
 /**
-* Delete Outdated node 
+* Delete outdated node 
 *
-* @method exist
+* @method deleteOutdatedNode
 * @param {String} nodeList nodeList
 */
 ConfigSet.prototype.deleteOutdatedNode = function(nodeList){

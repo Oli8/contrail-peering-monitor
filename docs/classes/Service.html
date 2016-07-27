@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>DiscoveryClient</title>
+    <title>Service</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -91,33 +91,36 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>DiscoveryClient Class</h1>
+<h1>Service Class</h1>
 <div class="box meta">
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_Client_DiscoveryClient.js.html#l10"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:10</code></a>
+            Defined in: <a href="../files/src_Entity_Service.js.html#l10"><code>src&#x2F;Entity&#x2F;Service.js:10</code></a>
         </div>
 
-            Module: <a href="../modules/client.html">client</a>
+            Module: <a href="../modules/entity.html">entity</a>
 
 </div>
 
 
 <div class="box intro">
-    <p>DiscoveryClient description ...</p>
+    <p>Service description ...</p>
 
 </div>
 
     <div class="constructor">
         <h2>Constructor</h2>
-<div id="method_DiscoveryClient" class="method item">
-    <h3 class="name"><code>DiscoveryClient</code></h3>
+<div id="method_Service" class="method item">
+    <h3 class="name"><code>Service</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
                         <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>hostname</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -132,7 +135,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Client_DiscoveryClient.js.html#l10"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:10</code></a>
+        <a href="../files/src_Entity_Service.js.html#l10"><code>src&#x2F;Entity&#x2F;Service.js:10</code></a>
         </p>
 
 
@@ -154,6 +157,17 @@
 
                     <div class="param-description">
                         <p>name</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">hostname</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>hostname</p>
 
                     </div>
 
@@ -183,11 +197,11 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_get">get</a>
+                                <a href="#method_check">check</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getDataFromPath">getDataFromPath</a>
+                                <a href="#method_setStatus">setStatus</a>
 
                             </li>
                             <li class="index-item method">
@@ -202,11 +216,19 @@
 
                     <ul class="index-list properties">
                             <li class="index-item property">
+                                <a href="#property_hostname">hostname</a>
+
+                            </li>
+                            <li class="index-item property">
                                 <a href="#property_name">name</a>
 
                             </li>
                             <li class="index-item property">
-                                <a href="#property_path">path</a>
+                                <a href="#property_port">port</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_status">status</a>
 
                             </li>
                     </ul>
@@ -218,8 +240,8 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_get" class="method item">
-    <h3 class="name"><code>get</code></h3>
+<div id="method_check" class="method item">
+    <h3 class="name"><code>check</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
@@ -240,7 +262,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Client_DiscoveryClient.js.html#l60"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:60</code></a>
+        <a href="../files/src_Entity_Service.js.html#l41"><code>src&#x2F;Entity&#x2F;Service.js:41</code></a>
         </p>
 
 
@@ -248,7 +270,7 @@
     </div>
 
     <div class="description">
-        <p>DiscoveryClient get description</p>
+        <p>Service get description</p>
 
     </div>
 
@@ -273,16 +295,13 @@
 
 
 </div>
-<div id="method_getDataFromPath" class="method item">
-    <h3 class="name"><code>getDataFromPath</code></h3>
+<div id="method_setStatus" class="method item">
+    <h3 class="name"><code>setStatus</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>path</code>
-                </li>
-                <li class="arg">
-                        <code>callback</code>
+                        <code>status</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -293,12 +312,11 @@
 
 
 
-        <span class="flag async">async</span>
 
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Client_DiscoveryClient.js.html#l38"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:38</code></a>
+        <a href="../files/src_Entity_Service.js.html#l66"><code>src&#x2F;Entity&#x2F;Service.js:66</code></a>
         </p>
 
 
@@ -306,7 +324,7 @@
     </div>
 
     <div class="description">
-        <p>getDataFromPath description</p>
+        <p>Service get description</p>
 
     </div>
 
@@ -315,23 +333,12 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">path</code>
+                        <code class="param-name">status</code>
                         <span class="type">String</span>
 
 
                     <div class="param-description">
-                        <p>path of something</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">callback</code>
-                        <span class="type">Function</span>
-
-
-                    <div class="param-description">
-                        <p>callback function</p>
+                        <p>new status' name</p>
 
                     </div>
 
@@ -360,7 +367,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Client_DiscoveryClient.js.html#l77"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:77</code></a>
+        <a href="../files/src_Entity_Service.js.html#l76"><code>src&#x2F;Entity&#x2F;Service.js:76</code></a>
         </p>
 
 
@@ -368,7 +375,7 @@
     </div>
 
     <div class="description">
-        <p>DiscoveryClient toString description</p>
+        <p>Service toString description</p>
 
     </div>
 
@@ -378,7 +385,7 @@
 
             <div class="returns-description">
                         <span class="type">String</span>:
-                    <p>DiscoveryClient string description</p>
+                    <p>Service string description</p>
 
             </div>
         </div>
@@ -390,8 +397,8 @@
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
 
-<div id="property_name" class="property item">
-    <h3 class="name"><code>name</code></h3>
+<div id="property_hostname" class="property item">
+    <h3 class="name"><code>hostname</code></h3>
     <span class="type">String</span>
 
 
@@ -401,7 +408,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Client_DiscoveryClient.js.html#l18"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:18</code></a>
+        <a href="../files/src_Entity_Service.js.html#l24"><code>src&#x2F;Entity&#x2F;Service.js:24</code></a>
         </p>
 
 
@@ -414,9 +421,9 @@
 
 
 </div>
-<div id="property_path" class="property item">
-    <h3 class="name"><code>path</code></h3>
-    <span class="type">Object</span>
+<div id="property_name" class="property item">
+    <h3 class="name"><code>name</code></h3>
+    <span class="type">String</span>
 
 
 
@@ -425,7 +432,55 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_Client_DiscoveryClient.js.html#l23"><code>src&#x2F;Client&#x2F;DiscoveryClient.js:23</code></a>
+        <a href="../files/src_Entity_Service.js.html#l19"><code>src&#x2F;Entity&#x2F;Service.js:19</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+</div>
+<div id="property_port" class="property item">
+    <h3 class="name"><code>port</code></h3>
+    <span class="type">String</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_Entity_Service.js.html#l29"><code>src&#x2F;Entity&#x2F;Service.js:29</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+</div>
+<div id="property_status" class="property item">
+    <h3 class="name"><code>status</code></h3>
+    <span class="type">String</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_Entity_Service.js.html#l34"><code>src&#x2F;Entity&#x2F;Service.js:34</code></a>
         </p>
 
 

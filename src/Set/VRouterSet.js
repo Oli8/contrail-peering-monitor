@@ -56,9 +56,9 @@ VRouterSet.prototype.exist = function(name){
 }
 
 /**
-* Delete Outdated node 
+* Delete outdated node 
 *
-* @method exist
+* @method deleteOutdatedNode
 * @param {String} nodeList nodeList
 */
 VRouterSet.prototype.deleteOutdatedNode = function(nodeList){

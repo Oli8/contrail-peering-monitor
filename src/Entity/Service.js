@@ -10,7 +10,7 @@ var externalConfig = require('../../config/contrail-peering-monitor.json');
  /**
  * Service description ...
  *
- * @class IntrospecVRouterClient
+ * @class Service
  * @constructor
  * @param {String} name name
  * @param {String} hostname hostname
@@ -42,7 +42,7 @@ var Service = function(name, hostname){
 * Service get description
 *
 * @async
-* @method get
+* @method check
 * @param {Function} callback callback function
 */
 Service.prototype.check = function(callback){
@@ -66,7 +66,7 @@ Service.prototype.check = function(callback){
 /**
 * Service get description
 *
-* @method set
+* @method setStatus
 * @param {String} status new status' name 
 */
 Service.prototype.setStatus = function(status){

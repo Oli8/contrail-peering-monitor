@@ -24,7 +24,9 @@
         "src/Client/IntrospecVRouterClient.js": {
             "name": "src/Client/IntrospecVRouterClient.js",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "IntrospecVRouterClient": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -34,7 +36,7 @@
                 "entity": 1
             },
             "classes": {
-                "IntrospecVRouterClient": 1
+                "Service": 1
             },
             "fors": {},
             "namespaces": {}
@@ -130,12 +132,13 @@
             "elements": {},
             "classes": {
                 "DiscoveryClient": 1,
-                "IntrospecControlClient": 1
+                "IntrospecControlClient": 1,
+                "IntrospecVRouterClient": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/Client/IntrospecControlClient.js",
+            "file": "src/Client/IntrospecVRouterClient.js",
             "line": 10,
             "description": "Client Module"
         },
@@ -144,7 +147,7 @@
             "submodules": {},
             "elements": {},
             "classes": {
-                "IntrospecVRouterClient": 1
+                "Service": 1
             },
             "fors": {},
             "namespaces": {},
@@ -241,6 +244,28 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "module": "client",
+            "namespace": "",
+            "file": "src/Client/IntrospecVRouterClient.js",
+            "line": 10,
+            "description": "IntrospecVRouterClient description ...",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "name",
+                    "type": "String"
+                }
+            ]
+        },
+        "Service": {
+            "name": "Service",
+            "shortname": "Service",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
             "module": "entity",
             "namespace": "",
             "file": "src/Entity/Service.js",
@@ -251,6 +276,11 @@
                 {
                     "name": "name",
                     "description": "name",
+                    "type": "String"
+                },
+                {
+                    "name": "hostname",
+                    "description": "hostname",
                     "type": "String"
                 }
             ]
@@ -649,7 +679,7 @@
             "itemtype": "property",
             "name": "name",
             "type": "String",
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -658,7 +688,7 @@
             "itemtype": "property",
             "name": "hostname",
             "type": "String",
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -667,7 +697,7 @@
             "itemtype": "property",
             "name": "port",
             "type": "String",
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -676,7 +706,7 @@
             "itemtype": "property",
             "name": "status",
             "type": "String",
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -685,7 +715,7 @@
             "description": "Service get description",
             "async": 1,
             "itemtype": "method",
-            "name": "get",
+            "name": "check",
             "params": [
                 {
                     "name": "callback",
@@ -693,7 +723,7 @@
                     "type": "Function"
                 }
             ],
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -701,7 +731,7 @@
             "line": 66,
             "description": "Service get description",
             "itemtype": "method",
-            "name": "set",
+            "name": "setStatus",
             "params": [
                 {
                     "name": "status",
@@ -709,7 +739,7 @@
                     "type": "String"
                 }
             ],
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -722,7 +752,7 @@
                 "description": "Service string description",
                 "type": "String"
             },
-            "class": "IntrospecVRouterClient",
+            "class": "Service",
             "module": "entity"
         },
         {
@@ -1130,9 +1160,9 @@
         {
             "file": "src/Set/ConfigSet.js",
             "line": 58,
-            "description": "Delete Outdated node",
+            "description": "Delete outdated node",
             "itemtype": "method",
-            "name": "exist",
+            "name": "deleteOutdatedNode",
             "params": [
                 {
                     "name": "nodeList",
@@ -1541,9 +1571,9 @@
         {
             "file": "src/Set/VRouterSet.js",
             "line": 58,
-            "description": "Delete Outdated node",
+            "description": "Delete outdated node",
             "itemtype": "method",
-            "name": "exist",
+            "name": "deleteOutdatedNode",
             "params": [
                 {
                     "name": "nodeList",
