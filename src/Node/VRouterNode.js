@@ -2,14 +2,50 @@ var async = require('async');
 var utils = require('../utils');
 var IntrospecVRouterClient = require('../Client/IntrospecVRouterClient');
 var Service = require('../Entity/Service');
+/**
+ * Node Module
+ *
+ * @module Node
+ */
 
-// VRouterNode
+/**
+ * VRouterNode description ...
+ *
+ * @class VRouterNode
+ * @constructor
+ * @param {String} name name
+ * @param {String} datasource datasource
+ */
 var VRouterNode = function(name, dataSource){
+  /**
+  * @property name
+  * @type String
+  */
   this.name = name;
+  /**
+  * @property type
+  * @type String
+  */
   this.type = 'VRouterNode';
+  /**
+  * @property introspecControlClient
+  * @type Object
+  */
   this.introspecVRouterClient = new IntrospecVRouterClient(name);
+  /**
+  * @property ipAddress
+  * @type Array
+  */
   this.ipAddress = [];
+  /**
+  * @property services
+  * @type Array
+  */
   this.services = [];
+  /**
+  * @property ifmapPeer
+  * @type Pbject
+  */
   this.xmppPeer = {};
 }
 
@@ -83,6 +119,13 @@ var updateXmpp = function(introspecJSON, controlList){
   return xmppPeer;
 }
 
+/**
+* update description
+*
+* @method update
+* @param {Object} discoClientJSON an object
+* @param {Object} discoServiceJSON an object
+*/
 VRouterNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   var self = this;
   var vRouterList = parseDiscoveryObject(discoClientJSON, this.name);
@@ -92,6 +135,12 @@ VRouterNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   }
 }
 
+/**
+* updateFromIntrospec description
+*
+* @method updateFromIntrospec
+* @param {Object} controlList an object
+*/
 VRouterNode.prototype.updateFromIntrospec = function(controlList){
   var self = this;
   self.xmppPeer = null;
@@ -100,7 +149,13 @@ VRouterNode.prototype.updateFromIntrospec = function(controlList){
   }
 }
 
-//@async
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {Function} callback callback function
+*/
 VRouterNode.prototype.checkServices = function(callback){
   var self = this;
   async.forEachOf(self.services, function(service, key, callback){
@@ -110,7 +165,13 @@ VRouterNode.prototype.checkServices = function(callback){
   });
 }
 
-//@async
+/**
+* getIntrospec description
+*
+* @async
+* @method getIntrospec
+* @param {Function} callback callback function
+*/
 VRouterNode.prototype.getIntrospec = function(callback){
   var self = this;
   self.introspecVRouterClient.get(callback);

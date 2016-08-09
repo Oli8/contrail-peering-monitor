@@ -1,9 +1,29 @@
 var async = require('async');
 var util = require('util');
 var utils = require('../utils');
+/**
+ * Client Module
+ *
+ * @module Client
+ */
 
+ /**
+ * IntrospecVRouterClient description ...
+ *
+ * @class IntrospecVRouterClient
+ * @constructor
+ * @param {String} name name
+ */
 var IntrospecVRouterClient = function(name){
+  /**
+  * @property name
+  * @type String
+  */
   this.name = name;
+  /**
+  * @property path
+  * @type Object
+  */
   this.path = {};
   this.path['/Snh_AgentXmppConnectionStatusReq']= {
     data : {},
@@ -12,7 +32,14 @@ var IntrospecVRouterClient = function(name){
   }
 }
 
-// @async
+/**
+* getDataFromPath description 
+*
+* @async
+* @method getDataFromPath
+* @param {String} path path of something
+* @param {Function} callback callback function
+*/ 
 IntrospecVRouterClient.prototype.getDataFromPath = function(path, callback){
   var self = this;
   self.path[path].error = false;
@@ -31,7 +58,13 @@ IntrospecVRouterClient.prototype.getDataFromPath = function(path, callback){
   });
 }
 
-//@async
+/**
+* IntrospecVRouterClient get description
+*
+* @async
+* @method get
+* @param {Function} callback callback function
+*/
 IntrospecVRouterClient.prototype.get = function(callback){
   var self = this;
   async.forEachOf(self.path, function(item, key, callback){
@@ -42,6 +75,12 @@ IntrospecVRouterClient.prototype.get = function(callback){
   });
 }
 
+/**
+* IntrospecVRouterClient toString description
+*
+* @method toString
+* @return {String} IntrospecVRouterClient string description
+*/
 IntrospecVRouterClient.prototype.toString = function(){
   return "##########################\n# IntrospecVRouterClient #\n##########################\nName: "+this.name+"\nData:"+util.inspect(this.path, false, null, true);
 }

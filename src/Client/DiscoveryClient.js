@@ -1,9 +1,29 @@
 var async = require('async');
 var util = require('util');
 var requestJSON = require('../utils').requestJSON;
+/**
+ * Client Module
+ *
+ * @module Client
+ */
 
+/**
+ * DiscoveryClient description ...
+ *
+ * @class DiscoveryClient
+ * @constructor
+ * @param {String} name name
+ */
 var DiscoveryClient = function(name){
+  /**
+  * @property name
+  * @type String
+  */
   this.name = name;
+  /**
+  * @property path
+  * @type Object
+  */
   this.path = {};
   this.path['/clients.json']= {
     data : {},
@@ -15,7 +35,14 @@ var DiscoveryClient = function(name){
   }
 }
 
-// @async
+/**
+* getDataFromPath description 
+*
+* @async
+* @method getDataFromPath
+* @param {String} path path of something
+* @param {Function} callback callback function
+*/ 
 DiscoveryClient.prototype.getDataFromPath = function(path, callback){
   var self = this;
   //console.log(require('util').inspect(this, { depth: 2 }));
@@ -30,7 +57,13 @@ DiscoveryClient.prototype.getDataFromPath = function(path, callback){
   });
 }
 
-//@async
+/**
+* DiscoveryClient get description
+*
+* @async
+* @method get
+* @param {Function} callback callback function
+*/
 DiscoveryClient.prototype.get = function(callback){
   var self = this;
   async.forEachOf(self.path, function(item, key, callback){
@@ -41,6 +74,12 @@ DiscoveryClient.prototype.get = function(callback){
   });
 }
 
+/**
+* DiscoveryClient toString description
+*
+* @method toString
+* @return {String} DiscoveryClient string description
+*/
 DiscoveryClient.prototype.toString = function(){
   return "###################\n# DiscoveryClient #\n###################\nName: "+this.name+"\nData:"+util.inspect(this.path, false, 4, true);
 }

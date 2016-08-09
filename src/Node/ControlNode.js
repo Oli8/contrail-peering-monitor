@@ -2,19 +2,49 @@ var async = require('async');
 var utils = require('../utils');
 var IntrospecControlClient = require('../Client/IntrospecControlClient');
 var Service = require('../Entity/Service');
+/**
+ * Node Module
+ *
+ * @module Node
+ */
 
 /**
-* Contrail Controller node representation
-*
-* @class ControlNode
-* @constructor
-*/
+ * ControlNode description ...
+ *
+ * @class ControlNode
+ * @constructor
+ * @param {String} name name
+ */
 var ControlNode = function(name){
+  /**
+  * @property name
+  * @type String
+  */
   this.name = name;
+  /**
+  * @property type
+  * @type String
+  */
   this.type = 'ControlNode';
+  /**
+  * @property introspecControlClient
+  * @type Object
+  */
   this.introspecControlClient = new IntrospecControlClient(name);
+  /**
+  * @property ipAddress
+  * @type Array
+  */
   this.ipAddress = [];
+  /**
+  * @property services
+  * @type Array
+  */
   this.services = [];
+  /**
+  * @property ifmapPeer
+  * @type Pbject
+  */
   this.ifmapPeer = {};
 }
 
@@ -124,6 +154,13 @@ var updateIfmap = function(introspecJSON, configList){
   return ifmapPeer;
 }
 
+/**
+* update description
+*
+* @method update
+* @param {Object} discoClientJSON an object
+* @param {Object} discoServiceJSON an object
+*/
 ControlNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   var self = this;
   var controlList = parseDiscoveryObject(discoClientJSON, discoServiceJSON, this.name);
@@ -133,6 +170,12 @@ ControlNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   }
 }
 
+/**
+* updateFromIntrospec description
+*
+* @method updateFromIntrospec
+* @param {Object} configList an object
+*/
 ControlNode.prototype.updateFromIntrospec = function(configList){
   var self = this;
   self.ifmapPeer = null;
@@ -141,13 +184,25 @@ ControlNode.prototype.updateFromIntrospec = function(configList){
   }
 }
 
-//@async
+/**
+* getIntrospec description
+*
+* @async
+* @method getIntrospec
+* @param {Function} callback callback function
+*/
 ControlNode.prototype.getIntrospec = function(callback){
   var self = this;
   self.introspecControlClient.get(callback);
 }
 
-//@async
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {Function} callback callback function
+*/
 ControlNode.prototype.checkServices = function(callback){
   var self = this;
   async.forEachOf(self.services, function(service, key, callback){

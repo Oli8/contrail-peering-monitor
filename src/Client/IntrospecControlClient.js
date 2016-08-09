@@ -1,9 +1,29 @@
 var async = require('async');
 var util = require('util');
 var utils = require('../utils');
+/**
+ * Client Module
+ *
+ * @module Client
+ */
 
+/**
+ * IntrospecControlClient description ...
+ *
+ * @class IntrospecControlClient
+ * @constructor
+ * @param {String} name name
+ */
 var IntrospecControlClient = function(name){
+  /**
+  * @property name
+  * @type String
+  */
   this.name = name;
+  /**
+  * @property path
+  * @type Object
+  */
   this.path = {};
   this.path['/Snh_IFMapPeerServerInfoReq']= {
     data : {},
@@ -12,7 +32,14 @@ var IntrospecControlClient = function(name){
   }
 }
 
-// @async
+/**
+* getDataFromPath description 
+*
+* @async
+* @method getDataFromPath
+* @param {String} path path of something
+* @param {Function} callback callback function
+*/ 
 IntrospecControlClient.prototype.getDataFromPath = function(path, callback){
   var self = this;
   self.path[path].error = false;
@@ -31,7 +58,13 @@ IntrospecControlClient.prototype.getDataFromPath = function(path, callback){
   });
 }
 
-//@async
+/**
+* IntrospecControlClient get description
+*
+* @async
+* @method get
+* @param {Function} callback callback function
+*/
 IntrospecControlClient.prototype.get = function(callback){
   var self = this;
   async.forEachOf(self.path, function(item, key, callback){
@@ -42,6 +75,12 @@ IntrospecControlClient.prototype.get = function(callback){
   });
 }
 
+/**
+* IntrospecControlClient toString description
+*
+* @method toString
+* @return {String} IntrospecControlClient string description
+*/
 IntrospecControlClient.prototype.toString = function(){
   return "##########################\n# IntrospecControlClient #\n##########################\nName: "+this.name+"\nData:"+util.inspect(this.path, false, 4, true);
 }

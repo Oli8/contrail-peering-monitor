@@ -1,0 +1,11 @@
+{
+    "name": "Contrail Peering Monitor",
+    "description": "Contrail Peering Monitor : ...",
+    "version": "1.0.1",
+    "url": "https://github.com/cloudwatt/contrail-peering-monitor",
+    "options": {
+        "outdir": "docs",
+        "paths" : "src"
+    },
+    "logo" : "https://www.cloudwatt.com/fr/images/logo.png"
+}

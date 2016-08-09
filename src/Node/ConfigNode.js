@@ -1,12 +1,39 @@
 var async = require('async');
 var utils = require('../utils');
 var Service = require('../Entity/Service');
+/**
+ * Node Module
+ *
+ * @module Node
+ */
 
-// ConfigNode
+/**
+ * ConfigNode description ...
+ *
+ * @class ConfigNode
+ * @constructor
+ * @param {String} name name
+ */
 var ConfigNode = function(name){
+  /**
+    * @property name
+    * @type String
+  */
   this.name = name;
+  /**
+    * @property type
+    * @type String
+  */
   this.type = 'ConfigNode';
+  /**
+    * @property ipAddress
+    * @type Array
+  */
   this.ipAddress = [];
+  /**
+    * @property services
+    * @type Array
+  */
   this.services = [];
 }
 
@@ -67,6 +94,13 @@ var parseDiscoveryObject = function(discoClientJSON, discoServiceJSON, name){
   return configlist;
 }
 
+/**
+* update description
+*
+* @method update
+* @param {Object} discoClientJSON an object
+* @param {Object} discoServiceJSON an object
+*/
 ConfigNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   var self = this;
   var configList = parseDiscoveryObject(discoClientJSON, discoServiceJSON, this.name);
@@ -76,7 +110,13 @@ ConfigNode.prototype.update = function(discoClientJSON, discoServiceJSON){
   }
 }
 
-//@async
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {Function} callback callback function
+*/
 ConfigNode.prototype.checkServices = function(callback){
   var self = this;
   async.forEachOf(self.services, function(service, key, callback){

@@ -1,9 +1,28 @@
 var async = require('async');
 var utils = require('../utils');
 var ConfigNode = require('../Node/ConfigNode');
+/**
+ * Set Module
+ *
+ * @module Set
+ */
 
+/**
+ * ConfigSet description ...
+ *
+ * @class ConfigSet
+ * @constructor
+ */
 var ConfigSet = function(){
+	/**
+	* @property nodes
+	* @type Array
+	*/
 	this.nodes = [];
+	/**
+	* @property type
+	* @type String
+	*/
 	this.type = "ConfigSet";
 }
 
@@ -20,6 +39,13 @@ var parseDiscoveryObject = function(objJSON){
 	return configList;
 }
 
+/**
+* Check if a node's name already exists
+*
+* @method exist
+* @param {String} name name
+* @return {Boolean} Return wether the name exists
+*/
 ConfigSet.prototype.exist = function(name){
 	for(i in this.nodes){
 		if(this.nodes[i].name==name){
@@ -29,6 +55,12 @@ ConfigSet.prototype.exist = function(name){
 	return false;
 }
 
+/**
+* Delete outdated node 
+*
+* @method deleteOutdatedNode
+* @param {String} nodeList nodeList
+*/
 ConfigSet.prototype.deleteOutdatedNode = function(nodeList){
 	for(i in this.nodes){
 		var name = this.nodes[i].name;
@@ -39,6 +71,15 @@ ConfigSet.prototype.deleteOutdatedNode = function(nodeList){
 	}
 }
 
+//not async ?
+/**
+* update description
+*
+* @method update
+* @param {Object} discoClientJSON an object
+* @param {Object} discoServiceJSON an object
+* @param {function} callback callback function
+*/
 ConfigSet.prototype.update = function(discoClientJSON, discoServiceJSON, callback){
 	var self = this;
 	var configList = parseDiscoveryObject(discoClientJSON);
@@ -58,7 +99,13 @@ ConfigSet.prototype.update = function(discoClientJSON, discoServiceJSON, callbac
 	callback(null);
 }
 
-//@async
+/**
+* checkServices description
+*
+* @async
+* @method checkServices
+* @param {Function} callback callback function
+*/
 ConfigSet.prototype.checkServices = function(callback){
 	var self = this;
   async.forEachOf(self.nodes, function(node, key, callback){
